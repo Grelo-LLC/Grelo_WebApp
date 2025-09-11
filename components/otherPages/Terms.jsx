@@ -12,16 +12,8 @@ const sectionIds = [
 const sections = [
   { id: 1, text: "Terms", scroll: "terms" },
   { id: 2, text: "Limitations", scroll: "limitations" },
-  {
-    id: 3,
-    text: "Revisions and errata",
-    scroll: "revisions-and-errata",
-  },
-  {
-    id: 4,
-    text: "Site terms of use modifications",
-    scroll: "site-terms",
-  },
+  { id: 3, text: "Revisions and errata", scroll: "revisions-and-errata" },
+  { id: 4, text: "Site terms of use modifications", scroll: "site-terms" },
   { id: 5, text: "Risks", scroll: "risks" },
 ];
 

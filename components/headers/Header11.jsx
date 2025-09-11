@@ -5,8 +5,7 @@ import CategoryList from "./CategoryList";
 import Image from "next/image";
 import Link from "next/link";
 import CartLength from "../common/CartLength";
-import ProductSearch from "./ProductSearch";
-import ProductSorting from "./ProductSorting";
+
 export default function Header11() {
   return (
     <header id="header" className="header-default header-style-5 header-white">
@@ -35,23 +34,11 @@ export default function Header11() {
                   />
                 </Link>
                 <div className="d-xl-block d-none">
-                  <ProductSearch />
                 </div>
               </div>
             </div>
             <div className="col-xl-4 col-md-4 col-3">
               <div className="wrapper-header-right">
-                <div className="d-none d-xl-flex box-support">
-                  <span className="text-white icon icon-lifebuoy" />
-                  <div>
-                    <div className="text-title text-white">
-                      Hotline: +01 1234 8888
-                    </div>
-                    <div className="text-white text-caption-2">
-                      24/7 Support Center
-                    </div>
-                  </div>
-                </div>
                 <ul className="nav-icon d-flex justify-content-end align-items-center">
                   <li className="nav-search d-inline-flex d-xl-none">
                     <a
@@ -145,12 +132,8 @@ export default function Header11() {
                       </svg>
                     </Link>
                   </li>
-                  <li className="nav-cart">
-                    <a
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="nav-icon-item"
-                    >
+                  <li className="nav-wishlist">
+                    <Link href={`/shopping-cart`} className="nav-icon-item">
                       <svg
                         className="icon"
                         width={24}
@@ -170,7 +153,7 @@ export default function Header11() {
                       <span className="count-box">
                         <CartLength />
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -188,7 +171,6 @@ export default function Header11() {
                   <span className="text">Shop By Categories</span>
                   <span className="icon icon-arrow-down" />
                 </a>
-
                 <CategoryList />
               </div>
               <nav className="box-navigation">
@@ -196,9 +178,6 @@ export default function Header11() {
                   <Nav />
                 </ul>
               </nav>
-            </div>
-            <div className="box-right">
-              <ProductSorting />
             </div>
           </div>
         </div>

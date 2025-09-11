@@ -1,36 +1,30 @@
-import Footer1 from "@/components/footers/Footer1";
-import Header1 from "@/components/headers/Header1";
-import Topbar from "@/components/headers/Topbar";
-import BannerCollection from "@/components/homes/home-1/BannerCollection";
-import BannerCountdown from "@/components/homes/home-1/BannerCountdown";
-import Blogs from "@/components/common/Blogs";
-import Collections from "@/components/homes/home-1/Collections";
+import Brands from "@/components/common/Brands";
 import Features from "@/components/common/Features";
-import Hero from "@/components/homes/home-1/Hero";
-import Products from "@/components/common/Products3";
-import ShopGram from "@/components/common/ShopGram";
-import Testimonials from "@/components/common/Testimonials";
+import Footer1 from "@/components/footers/Footer1";
+import Header11 from "@/components/headers/Header11";
+import Topbar6 from "@/components/headers/Topbar6";
+import Categories from "@/components/homes/Categories";
+import Hero from "@/components/homes/Hero";
+import Products from "@/components/homes/Products";
+import React from "react";
 
 export const metadata = {
-  title: "Home || Modave - Multipurpose React Nextjs eCommerce Template",
+  title:
+    "Home Electronics || Modave - Multipurpose React Nextjs eCommerce Template",
   description: "Modave - Multipurpose React Nextjs eCommerce Template",
 };
 
-export default function HomePage() {
+export default function HomeElectronicPage() {
   return (
     <>
-      <Topbar />
-      <Header1 />
+      <Topbar6 />
+      <Header11 />
       <Hero />
-      <Collections />
+      <Categories />
       <Products />
-      <BannerCollection />
-      <BannerCountdown />
-      <Testimonials />
-      <Blogs />
-      <ShopGram />
-      <Features />
-      <Footer1 />
+      <Features parentClass="flat-spacing-4 line-top-container" />
+      <Brands parentClass="flat-spacing-5 line-top" />
+      <Footer1 dark />
     </>
   );
 }

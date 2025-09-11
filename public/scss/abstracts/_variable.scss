@@ -1,14 +1,20 @@
 //settings
-$font-main: "Kumbh Sans", sans-serif;
-$font-2: "Instrument Sans", sans-serif;
-$font-3: "Plus Jakarta Sans", sans-serif;
-$font-4: "Barlow Condensed", serif;
-$font-5: "Inter Tight", serif;
+$font-main: "Kumbh Sans",
+sans-serif;
+$font-2: "Instrument Sans",
+sans-serif;
+$font-3: "Plus Jakarta Sans",
+sans-serif;
+$font-4: "Barlow Condensed",
+serif;
+$font-5: "Inter Tight",
+serif;
 $fontIcon: "icomoon";
 
 :root {
     // color
-    --primary: #e43131;
+    --primary: #000000;
+    // --primary: #e43131;
     --main: #181818;
     --secondary: #4d4e4f;
     --secondary-2: #a0a0a0;

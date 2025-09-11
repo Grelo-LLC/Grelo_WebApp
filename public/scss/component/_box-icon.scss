@@ -26,36 +26,43 @@
     --reddit-cl: rgb(255, 69, 0);
     --line-cl: rgb(0, 195, 77);
     --spotify-cl: rgb(30, 125, 96);
+
     .social-facebook:hover {
         background: var(--facebook-cl);
         color: var(--white);
         border: none;
     }
+
     .social-twiter:hover {
         background: var(--twitter-cl);
         color: var(--white);
         border: none;
     }
+
     .social-instagram:hover {
         background: var(--instagram-cl);
         color: var(--white);
         border: none;
     }
+
     .social-tiktok:hover {
         background: var(--tiktok-cl);
         color: var(--white);
         border: none;
     }
+
     .social-pinterest:hover {
         background: var(--pinterest-cl);
         color: var(--white);
         border: none;
     }
+
     .social-amazon:hover {
         background: var(--main);
         color: var(--white);
         border: none;
     }
+
     .social-youtube:hover {
         background: var(--youtube-cl);
         color: var(--white);
@@ -65,6 +72,7 @@
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+
     a {
         display: flex;
         align-items: center;
@@ -76,12 +84,14 @@
         border: 1px solid var(--main);
         border-radius: 50%;
     }
+
     &.style-white {
         a {
             color: var(--white);
             border-color: var(--white);
         }
     }
+
     &.style-fill {
         a {
             background-color: var(--line);
@@ -90,17 +100,20 @@
             border: none;
         }
     }
+
     &.style-fill-2 {
         a {
             background-color: transparent;
             color: var(--white);
             border-color: var(--white);
             border: 1px solid #ffffff1a;
+
             &:hover {
                 border-color: transparent;
             }
         }
     }
+
     &.style-1 {
         a {
             background-color: var(--surface);
@@ -110,6 +123,7 @@
             border-color: transparent;
         }
     }
+
     &.style-2 {
         a {
             width: 40px;
@@ -120,17 +134,21 @@
             font-size: 18px;
         }
     }
+
     &.style-default {
         gap: 8px;
+
         a {
             border: 0;
             font-size: 15px;
         }
     }
+
     &.style-small {
         a {
             width: 32px;
             height: 32px;
+
             i {
                 font-size: 20px;
             }
@@ -143,18 +161,22 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
+
     .icon-box {
         font-size: 40px;
     }
+
     .content {
         display: grid;
         gap: 8px;
     }
+
     &.style-2 {
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
         gap: 12px;
+
         .icon-box {
             flex-shrink: 0;
             width: 64px;
@@ -163,20 +185,24 @@
             border: 1px solid var(--line);
             @include mixin.flex(center, center);
         }
+
         &.type-column {
             flex-direction: column;
             gap: 22px;
         }
-        
+
     }
+
     &.style-3 {
         padding-right: 20px;
         gap: 12px;
+
         .icon-box {
             padding: 12px;
         }
     }
 }
+
 .slider-icon-box {
     padding: 30px;
     border-radius: 16px;

@@ -17,23 +17,29 @@
     border: 1px solid var(--main);
     position: relative;
     overflow: hidden;
+
     span {
         color: inherit;
     }
+
     .icon {
         font-size: 22px;
     }
+
     .text,
     .icon {
         position: relative;
         z-index: 2;
     }
+
     &.btn-lg {
         padding: 16px 32px;
     }
+
     &.btn-md {
         padding: 10px 24px;
     }
+
     &:not(.btn-reset) {
         &:after {
             content: "";
@@ -48,14 +54,17 @@
             transform: skewY(9.3deg) scaleY(0);
             z-index: 1;
         }
+
         &:hover {
             color: var(--main);
+
             &::after {
                 transform-origin: bottom center;
                 transform: skewY(9.3deg) scaleY(2);
             }
         }
     }
+
     &.btn-reset {
         &:hover {
             background-color: var(--primary);
@@ -68,26 +77,33 @@
         background-color: var(--white);
         border: none;
         color: var(--main);
+
         &:hover {
             color: var(--white);
         }
+
         &::after {
             background-color: var(--primary);
         }
+
         &.has-border {
             border: 1px solid var(--main);
+
             &:hover {
                 border-color: var(--primary);
             }
         }
     }
+
     &.btn-square {
         border-radius: 8px;
     }
+
     &.radius-4 {
         border-radius: 4px;
     }
 }
+
 .btn-line {
     font-size: 16px;
     line-height: 26px;
@@ -116,6 +132,7 @@
         background-color: var(--main);
         @include mixin.transition3;
     }
+
     &::before {
         position: absolute;
         content: "";
@@ -127,31 +144,35 @@
         transition: width 0.3s linear;
         z-index: 1;
     }
+
     &.style-white {
         color: var(--white);
-        background: linear-gradient(
-            to right,
-            var(--primary) 50%,
-            var(--white) 50%
-        );
+        background: linear-gradient(to right,
+                var(--primary) 50%,
+                var(--white) 50%);
         background-size: 200% 100%;
         background-position: right;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         transition: background-position 0.3s linear;
+
         &::after {
             background-color: var(--white);
         }
     }
+
     &:hover {
         background-position: left;
+
         &::before {
             width: 100%;
         }
     }
+
     &.has-icon {
         gap: 7px;
         padding-top: 4px;
+
         i {
             font-size: 25px;
         }
@@ -164,14 +185,18 @@
     gap: 4px;
     font-size: 12px;
     line-height: 20px;
+
     i {
         font-size: 20px;
     }
+
     &:hover {
         color: var(--primary);
     }
+
     &.style-white {
         color: var(--white);
+
         &:hover {
             color: var(--primary);
         }
@@ -202,13 +227,16 @@
     color: var(--white);
     letter-spacing: 0.1em;
     border: 0;
+
     &:hover {
         background-color: var(--primary);
         color: var(--white);
     }
+
     &.btn-lg {
         padding: 16px 40px;
     }
+
     &.btn-lg-2 {
         padding: 15px;
     }
@@ -223,6 +251,7 @@
     background-color: var(--primary);
     color: var(--white);
     letter-spacing: 0.1em;
+
     &:hover {
         background-color: var(--main);
     }
@@ -238,6 +267,7 @@
     border: 1px solid var(--main);
     @include mixin.transition3();
     cursor: pointer;
+
     &:hover {
         background-color: var(--main);
         color: var(--white);
@@ -256,6 +286,7 @@
     background-color: rgba(254, 167, 36, 1);
     @include mixin.transition3();
     cursor: pointer;
+
     &:hover {
         background-color: var(--white);
         border-color: var(--main);
@@ -276,9 +307,11 @@
     color: var(--main);
     @include mixin.transition3();
     cursor: pointer;
+
     .icon {
         font-size: 24px;
     }
+
     &:hover {
         background-color: var(--main);
         color: var(--white);
@@ -300,10 +333,12 @@
     border: 2px solid var(--line);
     background-color: var(--white);
     color: var(--main);
+
     &:hover {
         color: var(--primary);
     }
 }
+
 .load-more-btn {
     width: auto;
     min-width: 163px;
@@ -317,6 +352,7 @@
 
 .tf-loading {
     position: relative;
+
     &::before {
         width: 18px;
         height: 18px;
@@ -334,24 +370,29 @@
         animation: tf_rotator 0.6s linear infinite paused;
         opacity: 0;
     }
+
     .text-btn {
         color: inherit;
     }
+
     &.loading {
         &::before {
             border: solid 2px var(--main);
             opacity: 1;
             animation-play-state: running;
         }
+
         .text-btn {
             display: none;
         }
     }
 }
+
 .btn-infinite-scroll {
     height: 32px;
     padding: 0;
     border: none;
+
     &::before {
         width: 22px;
         height: 22px;
@@ -365,6 +406,7 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -381,6 +423,7 @@
     @include mixin.flex(center, center);
     z-index: 999;
     border-radius: 99px 0px 99px 99px;
+
     .count-box {
         right: 6px;
         top: 16px;

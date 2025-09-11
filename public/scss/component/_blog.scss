@@ -5,13 +5,16 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 10px 33px;
+
     .meta-item {
         position: relative;
         display: flex;
         align-items: center;
+
         .icon {
             font-size: 24px;
         }
+
         &:not(:last-child)::after {
             position: absolute;
             content: "";
@@ -34,6 +37,7 @@
             transition: all 1s;
         }
     }
+
     &:hover {
         .image img {
             transform: scale(1.1);
@@ -47,38 +51,42 @@
         overflow: hidden;
         margin-bottom: 32px;
     }
+
     .content {
         display: flex;
         flex-direction: column;
         gap: 16px;
+
         .body-text-1 {
             color: var(--secondary);
         }
+
         .title {
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             display: -webkit-box;
             overflow: hidden;
+
             a {
                 display: inline;
                 background-repeat: no-repeat;
                 background-position-y: 0px;
-                background-image: linear-gradient(
-                    transparent calc(100% - 1px),
-                    currentColor 1px
-                );
+                background-image: linear-gradient(transparent calc(100% - 1px),
+                        currentColor 1px);
                 transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
                 background-size: 0 100%;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
         }
+
         .btn-readmore {
             color: #696c70;
             text-decoration: underline;
             margin-top: 8px;
         }
     }
+
     &:hover {
         .title a {
             background-size: 100% 100%;
@@ -86,56 +94,70 @@
             font-weight: 600;
         }
     }
+
     &.style-1 {
         .image {
             margin-bottom: 24px;
         }
+
         .content {
             gap: 12px;
         }
+
         .meta-item .icon {
             font-size: 16px;
         }
+
         .title {
             margin-bottom: 8px;
         }
+
         .body-text {
             color: var(--secondary);
         }
     }
+
     &.style-row {
         display: flex;
         align-items: center;
+
         .content {
             padding: 20px 0px 20px 40px;
             width: 53%;
         }
+
         .image {
             margin: 0;
             width: 47%;
         }
+
         .meta-item {
             .icon {
                 font-size: 16px;
             }
         }
+
         .bot-button {
             text-decoration: underline;
             text-decoration-thickness: 1px;
         }
     }
+
     &.style-abs {
         position: relative;
+
         .image {
             margin-bottom: 0px;
             border-radius: 20px;
             display: block;
+
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
         }
+
         .content {
             position: absolute;
             left: 28px;
@@ -149,6 +171,7 @@
 .wg-pagination {
     display: flex;
     gap: 8px;
+
     .pagination-item {
         width: 40px;
         height: 40px;
@@ -157,6 +180,7 @@
         border-radius: 5px;
         overflow: hidden;
     }
+
     li:hover,
     li.active {
         .pagination-item {
@@ -171,10 +195,12 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     .sidebar-heading {
         font-weight: 500;
         margin-bottom: 20px;
     }
+
     .sidebar-categories {
         ul {
             display: flex;
@@ -182,32 +208,39 @@
             gap: 12px;
         }
     }
+
     .sidebar-writer {
         .writer-avatar {
             display: flex;
             align-items: center;
             gap: 20px;
             margin-bottom: 20px;
+
             .image {
                 width: 100px;
                 height: 100px;
                 border-radius: 50%;
                 overflow: hidden;
+
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
+
             .name {
                 margin-bottom: 12px;
+
                 h6 {
                     margin-bottom: 4px;
                 }
+
                 p {
                     color: var(--secondary);
                 }
             }
+
             .button-follow {
                 padding: 6px 14px;
                 border-radius: 999px;
@@ -216,6 +249,7 @@
                 letter-spacing: 0.1em;
             }
         }
+
         .writer-content p {
             color: var(--secondary);
             margin-bottom: 16px;
@@ -229,18 +263,22 @@
         border-radius: 8px;
         overflow: hidden;
     }
+
     .content {
         display: grid;
         gap: 12px;
         flex-grow: 1;
     }
+
     .meta {
+
         // margin-bottom: 12px;
         .icon {
             font-size: 16px;
             line-height: 1;
         }
     }
+
     .title {
         a {
             -webkit-line-clamp: 2;
@@ -249,29 +287,36 @@
             overflow: hidden;
         }
     }
+
     &:not(:last-child) {
         padding-bottom: 19px;
         border-bottom: 1px solid var(--line);
         margin-bottom: 20px;
     }
+
     &.style-row {
         display: flex;
         gap: 20px;
         align-items: center;
+
         .content {
             gap: 8px;
         }
+
         .image {
             margin-bottom: 0;
             width: 112px;
             flex-shrink: 0;
         }
+
         .meta {
             // margin-bottom: 8px;
             gap: 10px 17px;
+
             p {
                 color: var(--main);
             }
+
             .meta-item:not(:last-child)::after {
                 right: -9px;
             }
@@ -284,12 +329,14 @@ ul.list-tags {
     align-items: center;
     gap: 11px;
     flex-wrap: wrap;
+
     a {
         display: flex;
         padding: 4px 15px;
         border-radius: 5px;
         border: 1px solid var(--line);
     }
+
     &.has-bg {
         a {
             border-radius: 40px;
@@ -304,15 +351,18 @@ ul.list-tags {
     display: flex;
     align-items: center;
     gap: 24px;
+
     .img-style {
         max-width: 303px;
         width: 100%;
         border-radius: 8px;
         overflow: hidden;
     }
+
     .content {
         display: grid;
         gap: 12px;
+
         .title-box {
             display: grid;
             gap: 8px;

@@ -17,9 +17,8 @@ export default function ReviewSorting() {
         {["Most Recent", "Oldest", "Most Popular"].map((option) => (
           <div
             key={option}
-            className={`select-item ${
-              selectedOption === option ? "active" : ""
-            }`}
+            className={`select-item ${selectedOption === option ? "active" : ""
+              }`}
             onClick={() => handleSelect(option)}
           >
             <span className="text-value-item">{option}</span>

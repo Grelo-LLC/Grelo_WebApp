@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import CurrencySelect from "../common/CurrencySelect";
 import LanguageSelect from "../common/LanguageSelect";
 export default function Topbar6({ bgColor = "bg-blue-2" }) {
@@ -17,14 +16,6 @@ export default function Topbar6({ bgColor = "bg-blue-2" }) {
               <a className="text-caption-1 text-white" href="#">
                 themesflat@gmail.com
               </a>
-            </li>
-            <li>
-              <Link
-                className="text-caption-1 text-white text-decoration-underline"
-                href={`/store-list`}
-              >
-                Our Store
-              </Link>
             </li>
           </ul>
           <div className="topbar-right d-none d-xl-block">
