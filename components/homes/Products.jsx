@@ -53,7 +53,7 @@ export default function Products() {
           {selectedItems.length > 0 ? (
             selectedItems.map((product, index) => (
               <div
-                className="col-lg-2 col-md-3 col-sm-6 col-xs-12 my-3"
+                className="col-lg-3 col-md-4 col-sm-6 col-xs-12 my-3"
                 key={index}
               >
                 <ProductCard3 product={product} />

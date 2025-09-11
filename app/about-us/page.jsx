@@ -1,11 +1,11 @@
 import Brands from "@/components/common/Brands";
 import Features2 from "@/components/common/Features2";
-import Footer1 from "@/components/footers/Footer1";
+import Footer from "@/components/footers/Footer";
 import Link from "next/link";
-import Topbar6 from "@/components/headers/Topbar6";
+import Topbar from "@/components/headers/Topbar";
 import About from "@/components/otherPages/About";
 import React from "react";
-import Header11 from "@/components/headers/Header11";
+import Header from "@/components/headers/Header";
 
 export const metadata = {
   title: "About Us || Modave - Multipurpose React Nextjs eCommerce Template",
@@ -15,8 +15,8 @@ export const metadata = {
 export default function AboutUsPage() {
   return (
     <>
-      <Topbar6 />
-      <Header11 />
+      <Topbar />
+      <Header />
       <div
         className="page-title"
         style={{ backgroundImage: "url(/images/section/page-title.jpg)" }}
@@ -51,7 +51,7 @@ export default function AboutUsPage() {
       <About />
       <Features2 parentClass="flat-spacing line-bottom-container" />
       <Brands parentClass="flat-spacing-5 bg-surface" />
-      <Footer1 dark />
+      <Footer dark />
     </>
   );
 }

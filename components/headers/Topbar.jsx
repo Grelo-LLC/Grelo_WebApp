@@ -1,7 +1,7 @@
 import React from "react";
 import CurrencySelect from "../common/CurrencySelect";
 import LanguageSelect from "../common/LanguageSelect";
-export default function Topbar6({ bgColor = "bg-blue-2" }) {
+export default function Topbar({ bgColor = "bg-blue-2" }) {
   return (
     <div className={`tf-topbar ${bgColor}`}>
       <div className="container">

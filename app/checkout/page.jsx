@@ -1,6 +1,6 @@
-import Footer1 from "@/components/footers/Footer1";
-import Header11 from "@/components/headers/Header11";
-import Topbar6 from "@/components/headers/Topbar6";
+import Footer from "@/components/footers/Footer";
+import Header from "@/components/headers/Header";
+import Topbar from "@/components/headers/Topbar";
 import Checkout from "@/components/otherPages/Checkout";
 import Link from "next/link";
 import React from "react";
@@ -8,8 +8,8 @@ import React from "react";
 export default function CheckoutPage() {
   return (
     <>
-      <Topbar6 />
-      <Header11 />
+      <Topbar />
+      <Header />
       <div
         className="page-title"
         style={{ backgroundImage: "url(/images/section/page-title.jpg)" }}
@@ -38,7 +38,7 @@ export default function CheckoutPage() {
         </div>
       </div>
       <Checkout />
-      <Footer1 dark />
+      <Footer dark />
     </>
   );
 }

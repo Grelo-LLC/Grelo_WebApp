@@ -9,7 +9,7 @@ import ToolbarBottom from "../headers/ToolbarBottom";
 import ScrollTop from "../common/ScrollTop";
 import { footerLinks, socialLinks } from "@/data/footerLinks";
 import axios from "axios";
-export default function Footer1({
+export default function Footer({
   border = true,
   dark = false,
   hasPaddingBottom = false,
@@ -82,9 +82,8 @@ export default function Footer1({
     <>
       <footer
         id="footer"
-        className={`footer ${dark ? "bg-main" : ""} ${
-          hasPaddingBottom ? "has-pb" : ""
-        } `}
+        className={`footer ${dark ? "bg-main" : ""} ${hasPaddingBottom ? "has-pb" : ""
+          } `}
       >
         <div className={`footer-wrap ${!border ? "border-0" : ""}`}>
           <div className="footer-body">
@@ -111,9 +110,8 @@ export default function Footer1({
                       <p>549 Oak St.Crystal Lake, IL 60014</p>
                       <Link
                         href={`/contact`}
-                        className={`tf-btn-default fw-6 ${
-                          dark ? "style-white" : ""
-                        } `}
+                        className={`tf-btn-default fw-6 ${dark ? "style-white" : ""
+                          } `}
                       >
                         GET DIRECTION
                         <i className="icon-arrowUpRight" />
@@ -130,9 +128,8 @@ export default function Footer1({
                       </li>
                     </ul>
                     <ul
-                      className={`tf-social-icon  ${
-                        dark ? "style-white" : ""
-                      } `}
+                      className={`tf-social-icon  ${dark ? "style-white" : ""
+                        } `}
                     >
                       {socialLinks.map((link, index) => (
                         <li key={index}>
@@ -190,9 +187,8 @@ export default function Footer1({
                           purchase
                         </p>
                         <div
-                          className={`tfSubscribeMsg  footer-sub-element ${
-                            showMessage ? "active" : ""
-                          }`}
+                          className={`tfSubscribeMsg  footer-sub-element ${showMessage ? "active" : ""
+                            }`}
                         >
                           {success ? (
                             <p style={{ color: "rgb(52, 168, 83)" }}>
@@ -204,9 +200,8 @@ export default function Footer1({
                         </div>
                         <form
                           onSubmit={sendEmail}
-                          className={`form-newsletter subscribe-form ${
-                            dark ? "style-black" : ""
-                          }`}
+                          className={`form-newsletter subscribe-form ${dark ? "style-black" : ""
+                            }`}
                         >
                           <div className="subscribe-content">
                             <fieldset className="email">
@@ -279,9 +274,8 @@ export default function Footer1({
                         </div>
                         <div className="tf-languages">
                           <LanguageSelect
-                            parentClassName={`image-select center style-default type-languages ${
-                              dark ? "color-white" : ""
-                            }`}
+                            parentClassName={`image-select center style-default type-languages ${dark ? "color-white" : ""
+                              }`}
                           />
                         </div>
                       </div>

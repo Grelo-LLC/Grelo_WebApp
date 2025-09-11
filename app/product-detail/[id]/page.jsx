@@ -1,6 +1,6 @@
-import Footer1 from "@/components/footers/Footer1";
-import Header11 from "@/components/headers/Header11";
-import Topbar6 from "@/components/headers/Topbar6";
+import Footer from "@/components/footers/Footer";
+import Header from "@/components/headers/Header";
+import Topbar from "@/components/headers/Topbar";
 import Breadcumb from "@/components/productDetails/Breadcumb";
 import Descriptions1 from "@/components/productDetails/descriptions/Descriptions1";
 import Details1 from "@/components/productDetails/details/Details1";
@@ -20,13 +20,13 @@ export default async function ProductDetailPage({ params }) {
   const product = allProducts.filter((p) => p.id == id)[0] || allProducts[0];
   return (
     <>
-      <Topbar6 />
-      <Header11 />
+      <Topbar />
+      <Header />
       <Breadcumb product={product} />
       <Details1 product={product} />
       <Descriptions1 />
       <RelatedProducts />
-      <Footer1 hasPaddingBottom />
+      <Footer hasPaddingBottom />
     </>
   );
 }

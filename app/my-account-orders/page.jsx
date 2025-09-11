@@ -1,6 +1,6 @@
-import Footer1 from "@/components/footers/Footer1";
-import Header11 from "@/components/headers/Header11";
-import Topbar6 from "@/components/headers/Topbar6";
+import Footer from "@/components/footers/Footer";
+import Header from "@/components/headers/Header";
+import Topbar from "@/components/headers/Topbar";
 import AccountSidebar from "@/components/my-account/AccountSidebar";
 import Information from "@/components/my-account/Information";
 import Orers from "@/components/my-account/Orers";
@@ -16,8 +16,8 @@ export const metadata = {
 export default function MyAccountOrdersPage() {
   return (
     <>
-      <Topbar6 />
-      <Header11 />
+      <Topbar />
+      <Header />
       <>
         {/* page-title */}
         <div
@@ -67,7 +67,7 @@ export default function MyAccountOrdersPage() {
           </div>
         </div>
       </section>
-      <Footer1 dark />
+      <Footer dark />
     </>
   );
 }

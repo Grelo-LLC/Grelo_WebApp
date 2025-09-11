@@ -1,8 +1,8 @@
 import Brands from "@/components/common/Brands";
 import Features from "@/components/common/Features";
-import Footer1 from "@/components/footers/Footer1";
-import Header11 from "@/components/headers/Header11";
-import Topbar6 from "@/components/headers/Topbar6";
+import Footer from "@/components/footers/Footer";
+import Header from "@/components/headers/Header";
+import Topbar from "@/components/headers/Topbar";
 import Categories from "@/components/homes/Categories";
 import Hero from "@/components/homes/Hero";
 import Products from "@/components/homes/Products";
@@ -17,14 +17,14 @@ export const metadata = {
 export default function HomeElectronicPage() {
   return (
     <>
-      <Topbar6 />
-      <Header11 />
+      <Topbar />
+      <Header />
       <Hero />
       <Categories />
       <Products />
       <Features parentClass="flat-spacing-4 line-top-container" />
       <Brands parentClass="flat-spacing-5 line-top" />
-      <Footer1 dark />
+      <Footer dark />
     </>
   );
 }

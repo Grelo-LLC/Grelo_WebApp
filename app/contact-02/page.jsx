@@ -1,10 +1,10 @@
-import Footer1 from "@/components/footers/Footer1";
-import Topbar6 from "@/components/headers/Topbar6";
+import Footer from "@/components/footers/Footer";
+import Topbar from "@/components/headers/Topbar";
 import Contact3 from "@/components/otherPages/Contact3";
 import StoreLocations3 from "@/components/otherPages/StoreLocations3";
 import React from "react";
 import Link from "next/link";
-import Header11 from "@/components/headers/Header11";
+import Header from "@/components/headers/Header";
 export const metadata = {
   title: "Countact 02 || Modave - Multipurpose React Nextjs eCommerce Template",
   description: "Modave - Multipurpose React Nextjs eCommerce Template",
@@ -13,8 +13,8 @@ export const metadata = {
 export default function ContactPage2() {
   return (
     <>
-      <Topbar6 />
-      <Header11 />
+      <Topbar />
+      <Header />
       <div
         className="page-title"
         style={{ backgroundImage: "url(/images/section/page-title.jpg)" }}
@@ -48,7 +48,7 @@ export default function ContactPage2() {
       </div>
       <StoreLocations3 />
       <Contact3 />
-      <Footer1 dark />
+      <Footer dark />
     </>
   );
 }

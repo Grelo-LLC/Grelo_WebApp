@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CartLength from "../common/CartLength";
 
-export default function Header11() {
+export default function Header() {
   return (
     <header id="header" className="header-default header-style-5 header-white">
       <div className="main-header bg-blue-2">

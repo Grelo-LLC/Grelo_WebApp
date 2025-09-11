@@ -16,17 +16,23 @@ export default function Nav() {
 
   return (
     <>
-      {menuItems.map((item) => (
-        <li
-          key={item.href}
-          className={`menu-item ${pathname.startsWith(item.href) ? "active" : ""
-            }`}
-        >
-          <Link href={item.href} className="item-link">
-            {item.label}
-          </Link>
-        </li>
-      ))}
+      {menuItems.map((item) => {
+        const isActive =
+          item.href === "/"
+            ? pathname === "/"
+            : pathname.startsWith(item.href);
+
+        return (
+          <li
+            key={item.href}
+            className={`menu-item ${isActive ? "active" : ""}`}
+          >
+            <Link href={item.href} className="item-link">
+              {item.label}
+            </Link>
+          </li>
+        );
+      })}
     </>
   );
 }
