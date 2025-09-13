@@ -164,9 +164,8 @@ export default function Products4() {
               </a>
               <div
                 onClick={allProps.toggleFilterWithOnSale}
-                className={`d-none d-lg-flex shop-sale-text ${
-                  activeFilterOnSale ? "active" : ""
-                }`}
+                className={`d-none d-lg-flex shop-sale-text ${activeFilterOnSale ? "active" : ""
+                  }`}
               >
                 <i className="icon icon-checkCircle" />
                 <p className="text-caption-1">Shop sale items only</p>
@@ -202,7 +201,7 @@ export default function Products4() {
                     gridClass="grid"
                   />
                 ))}
-                {/* pagination */}
+
                 <ul className="wg-pagination justify-content-center">
                   <Pagination />
                 </ul>

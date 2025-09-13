@@ -8,12 +8,8 @@ export default function ProductCard3({ product }) {
   const [currentImage, setCurrentImage] = useState(product.imgSrc);
 
   const {
-    setQuickAddItem,
     addToWishlist,
     isAddedtoWishlist,
-    addToCompareItem,
-    isAddedtoCompareItem,
-    setQuickViewItem,
     addProductToCart,
     isAddedToCartProducts,
   } = useContextElement();
@@ -44,98 +40,6 @@ export default function ProductCard3({ product }) {
             height={800}
           />
         </Link>
-        {product.hotSale && (
-          <div className="marquee-product bg-main">
-            <div className="marquee-wrapper">
-              <div className="initial-child-container">
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-              </div>
-            </div>
-            <div className="marquee-wrapper">
-              <div className="initial-child-container">
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-                <div className="marquee-child-item">
-                  <p className="font-2 text-btn-uppercase fw-6 text-white">
-                    Hot Sale 25% OFF
-                  </p>
-                </div>
-                <div className="marquee-child-item">
-                  <span className="icon icon-lightning text-critical" />
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
         {product.isOnSale && (
           <div className="on-sale-wrap">
             <span className="on-sale-item">-{product.salePercentage}</span>
@@ -165,13 +69,6 @@ export default function ProductCard3({ product }) {
             </div>
           </div>
         )}
-        {product.oldPrice ? (
-          <div className="on-sale-wrap">
-            <span className="on-sale-item">-25%</span>
-          </div>
-        ) : (
-          ""
-        )}
         <div className="list-product-btn">
           <a
             onClick={() => addToWishlist(product.id)}
@@ -183,30 +80,6 @@ export default function ProductCard3({ product }) {
                 ? "Already Wishlished"
                 : "Wishlist"}
             </span>
-          </a>
-          <a
-            href="#compare"
-            data-bs-toggle="offcanvas"
-            aria-controls="compare"
-            onClick={() => addToCompareItem(product.id)}
-            className="box-icon compare btn-icon-action"
-          >
-            <span className="icon icon-gitDiff" />
-            <span className="tooltip">
-              {" "}
-              {isAddedtoCompareItem(product.id)
-                ? "Already compared"
-                : "Compare"}
-            </span>
-          </a>
-          <a
-            href="#quickView"
-            onClick={() => setQuickViewItem(product)}
-            data-bs-toggle="modal"
-            className="box-icon quickview tf-btn-loading"
-          >
-            <span className="icon icon-eye" />
-            <span className="tooltip">Quick View</span>
           </a>
         </div>
         <div className="list-btn-main">
@@ -240,28 +113,6 @@ export default function ProductCard3({ product }) {
           )}{" "}
           ${product.price.toFixed(2)}
         </span>
-        <div className="box-progress-stock">
-          <div className="progress">
-            <div
-              className="progress-bar"
-              role="progressbar"
-              style={{ width: `${product.progressBar}%` }}
-              aria-valuenow={product.progressBar}
-              aria-valuemin={0}
-              aria-valuemax={100}
-            />
-          </div>
-          <div className="stock-status d-flex justify-content-between align-items-center">
-            <div className="stock-item text-caption-1">
-              <span className="stock-label text-secondary-2"> Available: </span>
-              <span className="stock-value">{product.available}</span>
-            </div>
-            <div className="stock-item text-caption-1">
-              <span className="stock-label text-secondary-2"> Sold: </span>
-              <span className="stock-value">{product.sold}</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

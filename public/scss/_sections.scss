@@ -114,7 +114,6 @@ ul.breadcrumbs {
 
   >.image {
     height: 568px;
-    background-image: url(./../images/blog/blog-details-1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1556,15 +1555,15 @@ ul.list-text {
     }
   }
 
-  &::before {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 1px;
-    background-color: var(--line);
-    top: 0;
-    left: 50%;
-  }
+  // &::before {
+  //   position: absolute;
+  //   content: "";
+  //   height: 100%;
+  //   width: 1px;
+  //   background-color: var(--line);
+  //   top: 0;
+  //   left: 50%;
+  // }
 }
 
 .my-account-wrap {

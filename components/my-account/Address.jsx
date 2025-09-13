@@ -380,7 +380,6 @@ export default function Address() {
                         <option value="United States">United States</option>
                         <option value="Canada">Canada</option>
                         <option value="Australia">Australia</option>
-                        {/* Add more countries here */}
                       </select>
                     </div>
                     <fieldset className="mb_20">

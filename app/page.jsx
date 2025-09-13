@@ -9,8 +9,7 @@ import Products from "@/components/homes/Products";
 import React from "react";
 
 export const metadata = {
-  title:
-    "Home Electronics || Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Home Electronics || Modave - Multipurpose React Nextjs eCommerce Template",
   description: "Modave - Multipurpose React Nextjs eCommerce Template",
 };
 

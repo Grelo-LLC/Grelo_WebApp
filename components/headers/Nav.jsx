@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -7,11 +8,11 @@ export default function Nav() {
 
   const menuItems = [
     { href: "/", label: "Home" },
-    { href: "/shop-left-sidebar", label: "Shop" },
-    { href: "/product-detail/1", label: "Products" },
-    { href: "/about-us", label: "About Us" },
-    { href: "/FAQs", label: "FAQs" },
-    { href: "/term-of-use", label: "Terms Of Use" },
+    { href: "/store/products", label: "Shop" },
+    { href: "/page/about", label: "About Us" },
+    { href: "/page/faqs", label: "FAQs" },
+    { href: "/page/term-of-use", label: "Terms Of Use" },
+    { href: "/page/contact", label: "Contact Us" },
   ];
 
   return (

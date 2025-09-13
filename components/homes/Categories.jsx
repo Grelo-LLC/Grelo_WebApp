@@ -19,14 +19,14 @@ export default function Categories() {
           <Swiper
             dir="ltr"
             className="swiper tf-sw-categories"
-            slidesPerView={7} // Equivalent to data-preview
+            slidesPerView={7}
             breakpoints={{
-              1200: { slidesPerView: 7 }, // Desktop view
-              992: { slidesPerView: 4 }, // Tablet view
-              576: { slidesPerView: 3 }, // Small tablet view
-              0: { slidesPerView: 2 }, // Mobile view
+              1200: { slidesPerView: 7 },
+              992: { slidesPerView: 4 },
+              576: { slidesPerView: 3 },
+              0: { slidesPerView: 2 },
             }}
-            spaceBetween={15} // Equivalent to data-space
+            spaceBetween={15}
             modules={[Pagination, Navigation]}
             pagination={{
               clickable: true,

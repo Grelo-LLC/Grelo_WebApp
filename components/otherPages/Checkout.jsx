@@ -34,7 +34,7 @@ export default function Checkout() {
               <div className="wrap">
                 <div className="title-login">
                   <p>Already have an account?</p>{" "}
-                  <Link href={`/login`} className="text-button">
+                  <Link href={`/auth/login`} className="text-button">
                     Login here
                   </Link>
                 </div>

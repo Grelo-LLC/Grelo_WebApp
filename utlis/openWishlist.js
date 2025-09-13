@@ -1,5 +1,5 @@
 export const openWistlistModal = () => {
-  const bootstrap = require("bootstrap"); // dynamically import bootstrap
+  const bootstrap = require("bootstrap"); 
   const modalElements = document.querySelectorAll(".modal.show");
   modalElements.forEach((modal) => {
     const modalInstance = bootstrap.Modal.getInstance(modal);
@@ -7,8 +7,7 @@ export const openWistlistModal = () => {
       modalInstance.hide();
     }
   });
-
-  // Close any open offcanvas
+  
   const offcanvasElements = document.querySelectorAll(".offcanvas.show");
   offcanvasElements.forEach((offcanvas) => {
     const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);

@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,11 +10,11 @@ export default function MobileMenu() {
 
   const menuItems = [
     { href: "/", label: "Home" },
-    { href: "/shop-left-sidebar", label: "Shop" },
-    { href: "/product-detail/1", label: "Products" },
-    { href: "/about-us", label: "About Us" },
-    { href: "/FAQs", label: "FAQs" },
-    { href: "/term-of-use", label: "Terms Of Use" },
+    { href: "/store/products", label: "Shop" },
+    { href: "/page/about", label: "About Us" },
+    { href: "/page/faqs", label: "FAQs" },
+    { href: "/page/term-of-use", label: "Terms Of Use" },
+    { href: "/page/contact", label: "Contact Us" },
   ];
 
   return (
@@ -52,10 +53,10 @@ export default function MobileMenu() {
 
           <div className="mb-other-content">
             <div className="group-icon">
-              <Link href={`/wish-list`} className="site-nav-icon">
+              <Link href={`/store/wish-list`} className="site-nav-icon">
                 ❤️ Wishlist
               </Link>
-              <Link href={`/login`} className="site-nav-icon">
+              <Link href={`/auth/login`} className="site-nav-icon">
                 👤 Login
               </Link>
             </div>

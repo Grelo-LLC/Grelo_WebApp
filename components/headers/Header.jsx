@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Nav from "./Nav";
 import CategoryList from "./CategoryList";
@@ -99,12 +100,12 @@ export default function Header() {
                     </a>
                     <div className="dropdown-account dropdown-login">
                       <div className="sub-top">
-                        <Link href={`/login`} className="tf-btn btn-reset">
+                        <Link href={`/auth/login`} className="tf-btn btn-reset">
                           Login
                         </Link>
                         <p className="text-center text-secondary-2">
                           Don’t have an account?{" "}
-                          <Link href={`/register`}>Register</Link>
+                          <Link href={`/auth/register`}>Register</Link>
                         </p>
                       </div>
                       <div className="sub-bot">
@@ -113,7 +114,7 @@ export default function Header() {
                     </div>
                   </li>
                   <li className="nav-wishlist">
-                    <Link href={`/wish-list`} className="nav-icon-item">
+                    <Link href={`/store/wish-list`} className="nav-icon-item">
                       <svg
                         className="icon"
                         width={24}
@@ -133,7 +134,7 @@ export default function Header() {
                     </Link>
                   </li>
                   <li className="nav-wishlist">
-                    <Link href={`/shopping-cart`} className="nav-icon-item">
+                    <Link href={`/store/shopping-cart`} className="nav-icon-item">
                       <svg
                         className="icon"
                         width={24}

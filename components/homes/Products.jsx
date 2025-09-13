@@ -22,6 +22,19 @@ export default function Products() {
     }
   }, [activeItem]);
 
+  const [isLg, setIsLg] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLg(window.innerWidth >= 1200); // Bootstrap `lg` breakpoint = 1200px
+    };
+
+    handleResize(); // ilk yüklənmədə yoxla
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="flat-spacing-4 pt-0">
       <div className="container">
@@ -53,8 +66,13 @@ export default function Products() {
           {selectedItems.length > 0 ? (
             selectedItems.map((product, index) => (
               <div
-                className="col-lg-3 col-md-4 col-sm-6 col-xs-12 my-3"
                 key={index}
+                className="col-md-4 col-sm-6 col-xs-12 my-3"
+                style={
+                  isLg
+                    ? { flex: "0 0 20%", maxWidth: "20%" }
+                    : {}
+                }
               >
                 <ProductCard3 product={product} />
               </div>

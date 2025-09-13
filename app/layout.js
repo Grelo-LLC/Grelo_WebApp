@@ -1,4 +1,5 @@
 "use client";
+
 import { usePathname } from "next/navigation";
 import "../public/scss/main.scss";
 import "photoswipe/style.css";
@@ -6,27 +7,24 @@ import "react-range-slider-input/dist/style.css";
 import "../public/css/image-compare-viewer.min.css";
 import { useEffect, useState } from "react";
 import Context from "@/context/Context";
-import CartModal from "@/components/modals/CartModal";
-import QuickAdd from "@/components/modals/QuickAdd";
-import Compare from "@/components/modals/Compare";
 import MobileMenu from "@/components/modals/MobileMenu";
-import SizeGuide from "@/components/modals/SizeGuide";
-import Categories from "@/components/modals/Categories";
-import AccountSidebar from "@/components/modals/AccountSidebar";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
+  const [scrollDirection, setScrollDirection] = useState("down");
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Import the script only on the client side
-      import("bootstrap/dist/js/bootstrap.esm").then(() => {
-        // Module is imported, you can access any exported functionality if
-      });
+      import("bootstrap/dist/js/bootstrap.esm");
     }
   }, []);
+
+  // Scroll zamanı header classList idarəsi
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector("header");
+      if (!header) return;
+
       if (window.scrollY > 100) {
         header.classList.add("header-bg");
       } else {
@@ -35,77 +33,58 @@ export default function RootLayout({ children }) {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup function to remove event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
-
-  const [scrollDirection, setScrollDirection] = useState("down");
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
-    setScrollDirection("up");
+    const lastScrollY = { current: window.scrollY };
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > 250) {
         if (currentScrollY > lastScrollY.current) {
-          // Scrolling down
           setScrollDirection("down");
         } else {
-          // Scrolling up
           setScrollDirection("up");
         }
       } else {
-        // Below 250px
         setScrollDirection("down");
       }
 
       lastScrollY.current = currentScrollY;
     };
 
-    const lastScrollY = { current: window.scrollY };
-
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup: remove event listener when component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
+
   useEffect(() => {
-    // Close any open modal
-    const bootstrap = require("bootstrap"); // dynamically import bootstrap
+    const bootstrap = require("bootstrap");
     const modalElements = document.querySelectorAll(".modal.show");
     modalElements.forEach((modal) => {
       const modalInstance = bootstrap.Modal.getInstance(modal);
-      if (modalInstance) {
-        modalInstance.hide();
-      }
+      if (modalInstance) modalInstance.hide();
     });
 
-    // Close any open offcanvas
     const offcanvasElements = document.querySelectorAll(".offcanvas.show");
     offcanvasElements.forEach((offcanvas) => {
       const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
-      if (offcanvasInstance) {
-        offcanvasInstance.hide();
-      }
+      if (offcanvasInstance) offcanvasInstance.hide();
     });
-  }, [pathname]); // Runs every time the route changes
+  }, [pathname]);
 
   useEffect(() => {
     const header = document.querySelector("header");
-    if (header) {
-      if (scrollDirection == "up") {
-        header.style.top = "0px";
-      } else {
-        header.style.top = "-185px";
-      }
+    if (!header) return;
+
+    if (scrollDirection === "up") {
+      header.style.top = "0px";
+    } else {
+      header.style.top = "-185px";
     }
   }, [scrollDirection]);
+
   useEffect(() => {
     const WOW = require("@/utlis/wow");
     const wow = new WOW.default({
@@ -114,19 +93,15 @@ export default function RootLayout({ children }) {
     });
     wow.init();
   }, [pathname]);
+
   return (
     <html lang="en">
       <body className="preload-wrapper popup-loader">
         <Context>
-          <div id="wrapper">{children}</div>
-          <CartModal />
-          <QuickAdd />
-          <Compare />
+          <div id="wrapper">
+            {children}
+          </div>
           <MobileMenu />
-
-          <SizeGuide />
-          <Categories />
-          <AccountSidebar />
         </Context>
       </body>
     </html>

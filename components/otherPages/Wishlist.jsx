@@ -18,12 +18,10 @@ export default function Wishlist() {
       <div className="container">
         {items.length ? (
           <div className="tf-grid-layout tf-col-2 md-col-3 xl-col-4">
-            {/* card product 1 */}
             {items.map((product, i) => (
               <ProductCard1 key={i} product={product} />
             ))}
 
-            {/* pagination */}
             <ul className="wg-pagination justify-content-center">
               <Pagination />
             </ul>

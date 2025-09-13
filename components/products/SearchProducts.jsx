@@ -9,7 +9,6 @@ import Link from "next/link";
 export default function SearchProducts() {
   return (
     <>
-      {/* search */}
       <section className="flat-spacing page-search-inner">
         <div className="container">
           <div className="row justify-content-center">
@@ -75,8 +74,7 @@ export default function SearchProducts() {
           </div>
         </div>
       </section>
-      {/* /search */}
-      {/* Top pick */}
+
       <section className="flat-spacing pt-0">
         <div className="container">
           <div className="heading-section text-center wow fadeInUp">

@@ -26,7 +26,6 @@ export default function Details1({ product }) {
       <div className="tf-main-product section-image-zoom">
         <div className="container">
           <div className="row">
-            {/* Product default */}
             <div className="col-md-6">
               <div className="tf-product-media-wrap sticky-top">
                 <Slider1
@@ -36,8 +35,7 @@ export default function Details1({ product }) {
                 />
               </div>
             </div>
-            {/* /Product default */}
-            {/* tf-product-info-list */}
+
             <div className="col-md-6">
               <div className="tf-product-info-wrap position-relative mw-100p-hidden ">
                 <div className="tf-zoom-main" />
@@ -113,8 +111,8 @@ export default function Details1({ product }) {
                         quantity={
                           isAddedToCartProducts(product.id)
                             ? cartProducts.filter(
-                                (elm) => elm.id == product.id
-                              )[0].quantity
+                              (elm) => elm.id == product.id
+                            )[0].quantity
                             : quantity
                         }
                         setQuantity={(qty) => {
@@ -141,11 +139,11 @@ export default function Details1({ product }) {
                             $
                             {isAddedToCartProducts(product.id)
                               ? (
-                                  product.price *
-                                  cartProducts.filter(
-                                    (elm) => elm.id == product.id
-                                  )[0].quantity
-                                ).toFixed(2)
+                                product.price *
+                                cartProducts.filter(
+                                  (elm) => elm.id == product.id
+                                )[0].quantity
+                              ).toFixed(2)
                               : (product.price * quantity).toFixed(2)}{" "}
                           </span>
                         </a>
@@ -351,7 +349,6 @@ export default function Details1({ product }) {
                 </div>
               </div>
             </div>
-            {/* /tf-product-info-list */}
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import CurrencySelect from "../common/CurrencySelect";
 import LanguageSelect from "../common/LanguageSelect";
 export default function Topbar({ bgColor = "bg-blue-2" }) {
   return (
@@ -21,7 +20,6 @@ export default function Topbar({ bgColor = "bg-blue-2" }) {
           <div className="topbar-right d-none d-xl-block">
             <div className="tf-cur justify-content-end">
               <div className="tf-currencies">
-                <CurrencySelect topStart light />
               </div>
               <div className="tf-languages">
                 <LanguageSelect

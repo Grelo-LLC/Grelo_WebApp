@@ -17,7 +17,6 @@ export default function MyAccountPage() {
       <Topbar />
       <Header />
       <>
-        {/* page-title */}
         <div
           className="page-title"
           style={{ backgroundImage: "url(/images/section/page-title.jpg)" }}
@@ -49,7 +48,6 @@ export default function MyAccountPage() {
             </div>
           </div>
         </div>
-        {/* /page-title */}
         <div className="btn-sidebar-account">
           <button data-bs-toggle="offcanvas" data-bs-target="#mbAccount">
             <i className="icon icon-squares-four" />

@@ -27,7 +27,7 @@ export const footerLinks = [
       { label: "Privacy Policy", href: "#", isLink: false },
       { label: "Terms & Conditions", href: "/term-of-use", isLink: true },
       { label: "Orders FAQs", href: "/FAQs", isLink: true },
-      { label: "My Wishlist", href: "/wish-list", isLink: true },
+      { label: "My Wishlist", href: "/store/wish-list", isLink: true },
     ],
   },
 ];

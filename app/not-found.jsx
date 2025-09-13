@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+
 export const metadata = {
   title:
     "Page Not Found || Modave - Multipurpose React Nextjs eCommerce Template",
@@ -15,9 +16,9 @@ export default function PageNotFoundPage() {
           <div className="image">
             <Image
               className="lazyload"
-              data-src="/images/section/404.png"
+              data-src="/images/404.png"
               alt="image"
-              src="/images/section/404.png"
+              src="/images/404.png"
               width={679}
               height={701}
             />

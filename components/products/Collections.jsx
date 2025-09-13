@@ -7,7 +7,6 @@ export default function Collections() {
     <section className="flat-spacing">
       <div className="container">
         <div className="tf-grid-layout tf-col-2 lg-col-4">
-          {/* item 1 */}
           {collections11.map((item, index) => (
             <div
               key={index}
@@ -34,7 +33,7 @@ export default function Collections() {
               </div>
             </div>
           ))}
-          {/* pagination */}
+
           <ul className="wg-pagination justify-content-center">
             <Pagination />
           </ul>

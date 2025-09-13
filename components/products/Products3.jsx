@@ -201,7 +201,6 @@ export default function Products3() {
                     gridClass="grid"
                   />
                 ))}
-                {/* pagination */}
                 <ul className="wg-pagination justify-content-center">
                   <Pagination />
                 </ul>

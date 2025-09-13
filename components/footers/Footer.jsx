@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import CurrencySelect from "../common/CurrencySelect";
 import LanguageSelect from "../common/LanguageSelect";
 import ToolbarBottom from "../headers/ToolbarBottom";
 import ScrollTop from "../common/ScrollTop";
@@ -269,9 +268,6 @@ export default function Footer({
                         ©{new Date().getFullYear()} Modave. All Rights Reserved.
                       </p>
                       <div className="tf-cur justify-content-end">
-                        <div className="tf-currencies">
-                          <CurrencySelect light={dark ? true : false} />
-                        </div>
                         <div className="tf-languages">
                           <LanguageSelect
                             parentClassName={`image-select center style-default type-languages ${dark ? "color-white" : ""

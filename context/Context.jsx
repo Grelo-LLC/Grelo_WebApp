@@ -1,10 +1,9 @@
 "use client";
 import { allProducts } from "@/data/products";
-import { openCartModal } from "@/utlis/openCartModal";
 import { openWistlistModal } from "@/utlis/openWishlist";
-
 import React, { useEffect } from "react";
 import { useContext, useState } from "react";
+
 const dataContext = React.createContext();
 export const useContextElement = () => {
   return useContext(dataContext);
@@ -37,9 +36,6 @@ export default function Context({ children }) {
         quantity: qty ? qty : 1,
       };
       setCartProducts((pre) => [...pre, item]);
-      if (isModal) {
-        openCartModal();
-      }
     }
   };
 
