@@ -2,9 +2,8 @@ import Otp from "@/components/auth/Otp";
 import React from "react";
 
 export const metadata = {
-  title:
-    "Check Your Email || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "OTP - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function OtpPage() {

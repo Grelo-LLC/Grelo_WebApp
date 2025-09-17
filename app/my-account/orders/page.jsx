@@ -2,14 +2,13 @@ import Footer from "@/components/footers/Footer";
 import Header from "@/components/headers/Header";
 import Topbar from "@/components/headers/Topbar";
 import AccountSidebar from "@/components/my-account/AccountSidebar";
-import Orers from "@/components/my-account/Orers";
+import Orders from "@/components/my-account/Orders";
 import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title:
-    "My Account Orders || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Sifarişlərim - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function MyAccountOrdersPage() {
@@ -35,14 +34,6 @@ export default function MyAccountOrdersPage() {
                   <li>
                     <i className="icon-arrRight" />
                   </li>
-                  <li>
-                    <a className="link" href="#">
-                      Pages
-                    </a>
-                  </li>
-                  <li>
-                    <i className="icon-arrRight" />
-                  </li>
                   <li>My Account</li>
                 </ul>
               </div>
@@ -60,7 +51,7 @@ export default function MyAccountOrdersPage() {
         <div className="container">
           <div className="my-account-wrap">
             <AccountSidebar />
-            <Orers />
+            <Orders />
           </div>
         </div>
       </section>

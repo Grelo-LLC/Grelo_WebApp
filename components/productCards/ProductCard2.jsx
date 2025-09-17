@@ -31,7 +31,7 @@ export default function ProductCard2({
       data-wow-delay={product.wowDelay}
     >
       <div className="card-product-wrapper">
-        <Link href={`/product-detail/${product.id}`} className="product-img">
+        <Link href={`/store/product-detail/${product.id}`} className="product-img">
           <Image
             className="lazyload img-product"
             data-src={product.imgSrc}
@@ -64,7 +64,7 @@ export default function ProductCard2({
         </div>
       </div>
       <div className="card-product-info">
-        <Link href={`/product-detail/${product.id}`} className="title link">
+        <Link href={`/store/product-detail/${product.id}`} className="title link">
           {product.title}
         </Link>
         <span className="price">
@@ -74,9 +74,8 @@ export default function ProductCard2({
         <ul className="list-color-product">
           {product.colors.map((color, idx) => (
             <li
-              className={`list-color-item color-swatch ${
-                currentImage == color.imgSrc ? "active" : ""
-              }  ${color.bgColor == "bg-white" ? "line" : ""}`}
+              className={`list-color-item color-swatch ${currentImage == color.imgSrc ? "active" : ""
+                }  ${color.bgColor == "bg-white" ? "line" : ""}`}
               onMouseOver={() => setCurrentImage(color.imgSrc)}
               key={idx}
             >

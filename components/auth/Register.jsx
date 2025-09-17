@@ -2,138 +2,103 @@
 
 import { useEffect, useState } from "react";
 import AuthImg from "./AuthImg";
+import PersonalForm from "./PersonalForm";
+import BusinessForm from "./BusinessForm";
+import Link from "next/link";
 
 export default function Register() {
-  const [passwordType, setPasswordType] = useState("password");
-  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
-  const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const [activeTab, setActiveTab] = useState("personal");
 
-  const togglePassword = () => {
-    setPasswordType((prevType) =>
-      prevType === "password" ? "text" : "password"
-    );
-  };
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 700);
+        };
 
-  const toggleConfirmPassword = () => {
-    setConfirmPasswordType((prevType) =>
-      prevType === "password" ? "text" : "password"
-    );
-  };
+        handleResize();
+        window.addEventListener("resize", handleResize);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 700);
-    };
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
+    return (
+        <div>
+            <section style={{ display: "flex", minHeight: "100vh" }}>
+                {!isMobile && (
+                    <div
+                        style={{
+                            flex: 1,
+                            height: "100vh",
+                            position: "relative",
+                        }}
+                    >
+                        <AuthImg />
+                    </div>
+                )}
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+                <div
+                    style={{
+                        flex: 1,
+                        height: "100vh",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "40px",
+                        width: isMobile ? "100%" : "50%",
+                        margin: "0 auto",
+                    }}
+                >
+                    <div className="login-wrap" style={{ maxWidth: "400px", width: "100%" }}>
+                        <div className="left">
+                            <div className="heading">
+                                <h4>Qeydiyyat</h4>
+                            </div>
 
-  return (
-    <section style={{ display: "flex", minHeight: "100vh" }}>
-      {!isMobile && (
-        <div
-          style={{
-            flex: 1,
-            height: "100vh",
-            position: "relative",
-          }}
-        >
-          <AuthImg />
+                            <div
+                                style={{
+                                    display: "flex",
+                                    marginBottom: "20px",
+                                }}
+                            >
+                                <button
+                                    onClick={() => setActiveTab("personal")}
+                                    style={{
+                                        flex: 1,
+                                        padding: "12px",
+                                        border: "none",
+                                        background:
+                                            activeTab === "personal" ? "#181818" : "transparent",
+                                        color: activeTab === "personal" ? "#fff" : "#333",
+                                        cursor: "pointer",
+                                        fontWeight: activeTab === "personal" ? "bold" : "normal",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    Fərdi
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab("business")}
+                                    style={{
+                                        flex: 1,
+                                        padding: "12px",
+                                        border: "none",
+                                        background:
+                                            activeTab === "business" ? "#181818" : "transparent",
+                                        color: activeTab === "business" ? "#fff" : "#333",
+                                        cursor: "pointer",
+                                        fontWeight: activeTab === "business" ? "bold" : "normal",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    Biznes
+                                </button>
+                            </div>
+
+                            {activeTab === "personal" ? <PersonalForm /> : <BusinessForm />}
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      )}
-
-      <div
-        style={{
-          flex: 1,
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "40px",
-          width: isMobile ? "100%" : "50%",
-          margin: "0 auto",
-        }}
-      >
-        <div className="login-wrap" style={{ maxWidth: "400px", width: "100%" }}>
-          <div className="left">
-            <div className="heading">
-              <h4>Register</h4>
-            </div>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="form-login form-has-password"
-            >
-              <div className="wrap">
-                <fieldset className="">
-                  <input
-                    className=""
-                    type="email"
-                    placeholder="Username or email address*"
-                    name="email"
-                    tabIndex={2}
-                    defaultValue=""
-                    aria-required="true"
-                    required
-                  />
-                </fieldset>
-                <fieldset className="position-relative password-item">
-                  <input
-                    className="input-password"
-                    type={passwordType}
-                    placeholder="Password*"
-                    name="password"
-                    tabIndex={2}
-                    defaultValue=""
-                    aria-required="true"
-                    required
-                  />
-                  <span
-                    className={`toggle-password ${!(passwordType === "text") ? "unshow" : ""
-                      }`}
-                    onClick={togglePassword}
-                  >
-                    <i
-                      className={`icon-eye-${!(passwordType === "text") ? "hide" : "show"
-                        }-line`}
-                    />
-                  </span>
-                </fieldset>
-
-                <fieldset className="position-relative password-item">
-                  <input
-                    className="input-password"
-                    type={confirmPasswordType}
-                    placeholder="Confirm Password*"
-                    name="confirmPassword"
-                    tabIndex={2}
-                    defaultValue=""
-                    aria-required="true"
-                    required
-                  />
-                  <span
-                    className={`toggle-password ${!(confirmPasswordType === "text") ? "unshow" : ""
-                      }`}
-                    onClick={toggleConfirmPassword}
-                  >
-                    <i
-                      className={`icon-eye-${!(confirmPasswordType === "text") ? "hide" : "show"
-                        }-line`}
-                    />
-                  </span>
-                </fieldset>
-              </div>
-              <div className="button-submit">
-                <button className="tf-btn btn-fill" type="submit">
-                  <span className="text text-button">Submit</span>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+    );
 }

@@ -2,16 +2,15 @@ import Footer from "@/components/footers/Footer";
 import Header from "@/components/headers/Header";
 import Topbar from "@/components/headers/Topbar";
 import Breadcumb from "@/components/productDetails/Breadcumb";
-import Descriptions1 from "@/components/productDetails/descriptions/Descriptions1";
-import Details1 from "@/components/productDetails/details/Details1";
+import Info from "@/components/productDetails/descriptions/Info";
+import Details from "@/components/productDetails/details/Details";
 import RelatedProducts from "@/components/productDetails/RelatedProducts";
 import { allProducts } from "@/data/products";
 import React from "react";
 
 export const metadata = {
-  title:
-    "Product Detail || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Məhsul Detalı - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default async function ProductDetailPage({ params }) {
@@ -23,10 +22,10 @@ export default async function ProductDetailPage({ params }) {
       <Topbar />
       <Header />
       <Breadcumb product={product} />
-      <Details1 product={product} />
-      <Descriptions1 />
+      <Details product={product} />
+      <Info />
       <RelatedProducts />
-      <Footer hasPaddingBottom />
+      <Footer dark />
     </>
   );
 }

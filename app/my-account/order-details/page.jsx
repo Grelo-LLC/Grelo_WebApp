@@ -7,9 +7,8 @@ import OrderDetails from "@/components/my-account/OrderDetails";
 import React from "react";
 
 export const metadata = {
-  title:
-    "My Account Order Details || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Hesabım Sifariş Təfərrüatları - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function MyAccountOrdersDetailsPage() {
@@ -31,14 +30,6 @@ export default function MyAccountOrdersDetailsPage() {
                     <Link className="link" href={`/`}>
                       Homepage
                     </Link>
-                  </li>
-                  <li>
-                    <i className="icon-arrRight" />
-                  </li>
-                  <li>
-                    <a className="link" href="#">
-                      Pages
-                    </a>
                   </li>
                   <li>
                     <i className="icon-arrRight" />

@@ -2,8 +2,8 @@ import Register from "@/components/auth/Register";
 import React from "react";
 
 export const metadata = {
-  title: "Login || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Qeydiyyat - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function RegisterPage() {

@@ -19,12 +19,11 @@ export default function ProductCard3({ product }) {
   }, [product]);
   return (
     <div
-      className={`card-product wow fadeInUp ${
-        product.isOnSale ? "on-sale" : ""
-      } ${product.sizes ? "card-product-size" : ""}`}
+      className={`card-product wow fadeInUp ${product.isOnSale ? "on-sale" : ""
+        } ${product.sizes ? "card-product-size" : ""}`}
     >
       <div className="card-product-wrapper">
-        <Link href={`/product-detail/${product.id}`} className="product-img">
+        <Link href={`/store/product-detail/${product.id}`} className="product-img">
           <Image
             className="lazyload img-product"
             src={currentImage}
@@ -96,7 +95,7 @@ export default function ProductCard3({ product }) {
         </div>
       </div>
       <div className="card-product-info">
-        <Link href={`/product-detail/${product.id}`} className="title link">
+        <Link href={`/store/product-detail/${product.id}`} className="title link">
           {product.title}
         </Link>
         <div className="box-rating">
@@ -105,13 +104,9 @@ export default function ProductCard3({ product }) {
               <li key={i} className="icon icon-star" />
             ))}
           </ul>
-          <span className="text-caption-1 text-secondary"> (1.234) </span>
         </div>
         <span className="price">
-          {product.oldPrice && (
-            <span className="old-price">${product.oldPrice.toFixed(2)}</span>
-          )}{" "}
-          ${product.price.toFixed(2)}
+          $ {product.price.toFixed(2)}
         </span>
       </div>
     </div>

@@ -30,16 +30,14 @@ export default function ProductCard1({
 
   return (
     <div
-      className={`${parentClass} ${gridClass} ${
-        product.isOnSale ? "on-sale" : ""
-      } ${product.sizes ? "card-product-size" : ""}`}
+      className={`${parentClass} ${gridClass} ${product.isOnSale ? "on-sale" : ""
+        } ${product.sizes ? "card-product-size" : ""}`}
     >
       <div
-        className={`card-product-wrapper ${
-          isNotImageRatio ? "aspect-ratio-0" : ""
-        } ${radiusClass} `}
+        className={`card-product-wrapper ${isNotImageRatio ? "aspect-ratio-0" : ""
+          } ${radiusClass} `}
       >
-        <Link href={`/product-detail/${product.id}`} className="product-img">
+        <Link href={`/store/product-detail/${product.id}`} className="product-img">
           <Image
             className="lazyload img-product"
             src={currentImage}
@@ -243,7 +241,7 @@ export default function ProductCard1({
         </div>
       </div>
       <div className="card-product-info">
-        <Link href={`/product-detail/${product.id}`} className="title link">
+        <Link href={`/store/product-detail/${product.id}`} className="title link">
           {product.title}
         </Link>
         <span className="price">
@@ -257,9 +255,8 @@ export default function ProductCard1({
             {product.colors.map((color, index) => (
               <li
                 key={index}
-                className={`list-color-item color-swatch ${
-                  currentImage == color.imgSrc ? "active" : ""
-                } ${color.bgColor == "bg-white" ? "line" : ""}`}
+                className={`list-color-item color-swatch ${currentImage == color.imgSrc ? "active" : ""
+                  } ${color.bgColor == "bg-white" ? "line" : ""}`}
                 onMouseOver={() => setCurrentImage(color.imgSrc)}
               >
                 <span className={`swatch-value ${color.bgColor}`} />

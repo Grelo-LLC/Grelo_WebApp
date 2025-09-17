@@ -3,9 +3,8 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title:
-    "Page Not Found || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "404 - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function PageNotFoundPage() {

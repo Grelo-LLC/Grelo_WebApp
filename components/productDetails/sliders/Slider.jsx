@@ -1,4 +1,5 @@
 "use client";
+
 import { slides } from "@/data/singleProductSliders";
 import Drift from "drift-zoom";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
@@ -6,7 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { Navigation, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-export default function Slider1({
+
+export default function Slider({
   activeColor = "gray",
   setActiveColor = () => {},
   firstItem,
@@ -18,7 +20,6 @@ export default function Slider1({
   items[0].src = firstItem ?? items[0].src;
 
   useEffect(() => {
-    // Function to initialize Drift
     const imageZoom = () => {
       const driftAll = document.querySelectorAll(".tf-image-zoom");
       const pane = document.querySelector(".tf-zoom-main");

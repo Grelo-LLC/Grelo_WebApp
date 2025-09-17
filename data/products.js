@@ -2461,19 +2461,7 @@ export const products29 = [
     sold: 70,
     progressBar: 80,
     tabFilterOptions: ["Smart Phone", "Electronic"],
-  },
-  {
-    id: 170,
-    imgSrc: "/images/products/electronic/electronic-9.jpg",
-    imgHover: "/images/products/electronic/electronic-10.jpg",
-    title: "Sony WH-1000XM4 Wireless Headphones",
-    price: 350.0,
-    rating: 5,
-    available: 30,
-    sold: 70,
-    progressBar: 80,
-    tabFilterOptions: ["Smart Phone", "Electronic"],
-  },
+  }
 ];
 
 export const products30 = [
@@ -3219,7 +3207,7 @@ export const products44 = [
   },
   {
     id: 339,
-    imgSrc: "/images/products/sneaker/product-detail.jpg",
+    imgSrc: "/images/products/sneaker/store/product-detail.jpg",
     title: "Puma Kids MB.03 Halloween",
     price: 59.99,
     oldPrice: 88.0,
@@ -5106,5 +5094,3 @@ const returnLastid = () => {
   });
   return id;
 };
-
-console.log(returnLastid());

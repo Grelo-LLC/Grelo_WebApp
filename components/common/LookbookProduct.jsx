@@ -13,7 +13,7 @@ export default function LookbookProduct({ product, styleClass = "style-row" }) {
       <div className="content">
         <div className="info">
           <Link
-            href={`/product-detail/${product.id}`}
+            href={`/store/product-detail/${product.id}`}
             className="text-title text-line-clamp-1 link"
           >
             {product.title}

@@ -7,12 +7,12 @@ export default function Nav() {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: "/", label: "Home" },
-    { href: "/store/products", label: "Shop" },
-    { href: "/page/about", label: "About Us" },
-    { href: "/page/faqs", label: "FAQs" },
-    { href: "/page/term-of-use", label: "Terms Of Use" },
-    { href: "/page/contact", label: "Contact Us" },
+    { href: "/", label: "Ana Səhifə" },
+    { href: "/store/products", label: "Mağaza" },
+    { href: "/page/about", label: "Haqqımızda" },
+    { href: "/page/faqs", label: "Tez-tez verilən suallar" },
+    { href: "/page/term-of-use", label: "İstifadə qaydaları" },
+    { href: "/page/contact", label: "Əlaqə" },
   ];
 
   return (

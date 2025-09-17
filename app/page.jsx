@@ -9,8 +9,8 @@ import Products from "@/components/homes/Products";
 import React from "react";
 
 export const metadata = {
-  title: "Home Electronics || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Ana Səhifə - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function HomeElectronicPage() {
@@ -22,7 +22,6 @@ export default function HomeElectronicPage() {
       <Categories />
       <Products />
       <Features parentClass="flat-spacing-4 line-top-container" />
-      <Brands parentClass="flat-spacing-5 line-top" />
       <Footer dark />
     </>
   );

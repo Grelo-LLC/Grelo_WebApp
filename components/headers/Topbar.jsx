@@ -1,5 +1,6 @@
 import React from "react";
 import LanguageSelect from "../common/LanguageSelect";
+
 export default function Topbar({ bgColor = "bg-blue-2" }) {
   return (
     <div className={`tf-topbar ${bgColor}`}>
@@ -8,12 +9,12 @@ export default function Topbar({ bgColor = "bg-blue-2" }) {
           <ul className="topbar-left">
             <li>
               <a className="text-caption-1 text-white" href="tel:315-666-6688">
-                315-666-6688
+                +994-55-713-52-90
               </a>
             </li>
             <li>
               <a className="text-caption-1 text-white" href="#">
-                themesflat@gmail.com
+                info@grelo.az
               </a>
             </li>
           </ul>

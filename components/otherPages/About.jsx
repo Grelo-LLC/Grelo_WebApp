@@ -120,9 +120,6 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              <a href="#" className="tf-btn btn-fill wow fadeInUp">
-                <span className="text text-button">Read More</span>
-              </a>
             </div>
           </div>
         </div>

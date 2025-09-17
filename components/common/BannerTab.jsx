@@ -71,9 +71,8 @@ export default function BannerTab({ parentClass = "flat-spacing pt-0" }) {
                   >
                     <a
                       href={`#tabBannerCls${item.id}`}
-                      className={`nav-tab-link hover-cursor-img ${
-                        item.active ? "active" : ""
-                      }`}
+                      className={`nav-tab-link hover-cursor-img ${item.active ? "active" : ""
+                        }`}
                       data-bs-toggle="tab"
                     >
                       <h5 className="title text-line-clamp-1">{item.title}</h5>
@@ -129,7 +128,7 @@ export default function BannerTab({ parentClass = "flat-spacing pt-0" }) {
                       <div className="content cls-content">
                         <div className="cls-info">
                           <Link
-                            href={`/product-detail/${item.id}`}
+                            href={`/store/product-detail/${item.id}`}
                             className="text-title link text-line-clamp-1"
                           >
                             {item.title}

@@ -1,7 +1,7 @@
 import { productMain } from "@/data/products";
 
 export const initialState = {
-  price: [20, 300],
+  price: [0, 300],
 
   availability: "All",
 

@@ -57,7 +57,7 @@ export default function Hero() {
                         href={`/shop-default-grid`}
                         className="tf-btn btn-fill"
                       >
-                        <span className="text">Shop Now</span>
+                        <span className="text">Alış Veriş</span>
                         <i className="icon icon-arrowUpRight" />
                       </Link>
                     </div>

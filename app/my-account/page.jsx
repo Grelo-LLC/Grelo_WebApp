@@ -7,8 +7,8 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "My Account || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Hesabım - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function MyAccountPage() {
@@ -30,14 +30,6 @@ export default function MyAccountPage() {
                     <Link className="link" href={`/`}>
                       Homepage
                     </Link>
-                  </li>
-                  <li>
-                    <i className="icon-arrRight" />
-                  </li>
-                  <li>
-                    <a className="link" href="#">
-                      Pages
-                    </a>
                   </li>
                   <li>
                     <i className="icon-arrRight" />

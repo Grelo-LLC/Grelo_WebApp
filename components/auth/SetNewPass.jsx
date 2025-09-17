@@ -7,6 +7,11 @@ export default function SetNewPass() {
     const [passwordType, setPasswordType] = useState("password");
     const [confirmPasswordType, setConfirmPasswordType] = useState("password");
     const [isMobile, setIsMobile] = useState(false);
+    const [errors, setErrors] = useState({});
+    const [formData, setFormData] = useState({
+        password: "",
+        confirmPassword: "",
+    });
 
     const togglePassword = () => {
         setPasswordType((prevType) =>
@@ -18,6 +23,32 @@ export default function SetNewPass() {
         setConfirmPasswordType((prevType) =>
             prevType === "password" ? "text" : "password"
         );
+    };
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setErrors({ ...errors, [e.target.name]: "" }); // yazılan anda erroru təmizlə
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let newErrors = {};
+
+        if (!formData.password) {
+            newErrors.password = "Yeni şifrəni daxil edin!";
+        }
+
+        if (!formData.confirmPassword) {
+            newErrors.confirmPassword = "Təkrar şifrəni daxil edin!";
+        } else if (formData.password !== formData.confirmPassword) {
+            newErrors.confirmPassword = "Şifrələr uyğun gəlmir!";
+        }
+
+        setErrors(newErrors);
+
+        if (Object.keys(newErrors).length === 0) {
+            console.log("Yeni şifrə uğurla göndərildi:", formData.password);
+        }
     };
 
     useEffect(() => {
@@ -60,24 +91,23 @@ export default function SetNewPass() {
                 <div className="login-wrap" style={{ maxWidth: "400px", width: "100%" }}>
                     <div className="left">
                         <div className="heading">
-                            <h4 className="mb_8">Set new password</h4>
-                            <p>Write password with confirm password</p>
+                            <h4 className="mb_8">Yeni şifrə təyin edin</h4>
+                            <p>Zəhmət olmasa yeni şifrənizi yazın və təkrar təsdiqləyin</p>
                         </div>
-                        <form
-                            onSubmit={(e) => e.preventDefault()}
-                            className="form-login form-has-password"
-                        >
+                        <form onSubmit={handleSubmit} className="form-login form-has-password">
                             <div className="wrap">
                                 <fieldset className="position-relative password-item">
                                     <input
                                         className="input-password"
                                         type={passwordType}
-                                        placeholder="New Password*"
+                                        placeholder="Yeni şifrə *"
                                         name="password"
-                                        tabIndex={2}
-                                        defaultValue=""
-                                        aria-required="true"
-                                        required
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        style={{
+                                            backgroundColor: errors.password ? "#ffdddb" : "",
+                                            border: errors.password ? "1px solid red" : "",
+                                        }}
                                     />
                                     <span
                                         className={`toggle-password ${!(passwordType === "text") ? "unshow" : ""
@@ -89,18 +119,23 @@ export default function SetNewPass() {
                                                 }-line`}
                                         />
                                     </span>
+                                    {errors.password && (
+                                        <small className="text-danger">{errors.password}</small>
+                                    )}
                                 </fieldset>
 
                                 <fieldset className="position-relative password-item">
                                     <input
                                         className="input-password"
                                         type={confirmPasswordType}
-                                        placeholder="Confirm Password*"
+                                        placeholder="Təkrar şifrə *"
                                         name="confirmPassword"
-                                        tabIndex={2}
-                                        defaultValue=""
-                                        aria-required="true"
-                                        required
+                                        value={formData.confirmPassword}
+                                        onChange={handleChange}
+                                        style={{
+                                            backgroundColor: errors.confirmPassword ? "#ffdddb" : "",
+                                            border: errors.confirmPassword ? "1px solid red" : "",
+                                        }}
                                     />
                                     <span
                                         className={`toggle-password ${!(confirmPasswordType === "text") ? "unshow" : ""
@@ -112,11 +147,14 @@ export default function SetNewPass() {
                                                 }-line`}
                                         />
                                     </span>
+                                    {errors.confirmPassword && (
+                                        <small className="text-danger">{errors.confirmPassword}</small>
+                                    )}
                                 </fieldset>
                             </div>
                             <div className="button-submit">
                                 <button className="tf-btn btn-fill" type="submit">
-                                    <span className="text text-button">Submit</span>
+                                    <span className="text text-button">Təsdiqlə</span>
                                 </button>
                             </div>
                         </form>

@@ -2,9 +2,8 @@ import SetNewPass from "@/components/auth/SetNewPass";
 import React from "react";
 
 export const metadata = {
-    title:
-        "Set New Password || Modave - Multipurpose React Nextjs eCommerce Template",
-    description: "Modave - Multipurpose React Nextjs eCommerce Template",
+    title: "Yeni şifrə - Grelo.Az",
+    description: "Grelo Agro Saytıdır",
 };
 
 export default function CheckYourEmailPage() {

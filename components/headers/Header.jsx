@@ -41,37 +41,6 @@ export default function Header() {
             <div className="col-xl-4 col-md-4 col-3">
               <div className="wrapper-header-right">
                 <ul className="nav-icon d-flex justify-content-end align-items-center">
-                  <li className="nav-search d-inline-flex d-xl-none">
-                    <a
-                      href="#search"
-                      data-bs-toggle="modal"
-                      className="nav-icon-item"
-                    >
-                      <svg
-                        className="icon"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                          stroke="#181818"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M21.35 21.0004L17 16.6504"
-                          stroke="#181818"
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </li>
                   <li className="nav-account">
                     <a href="#" className="nav-icon-item">
                       <svg
@@ -101,15 +70,12 @@ export default function Header() {
                     <div className="dropdown-account dropdown-login">
                       <div className="sub-top">
                         <Link href={`/auth/login`} className="tf-btn btn-reset">
-                          Login
+                          Giriş
                         </Link>
                         <p className="text-center text-secondary-2">
-                          Don’t have an account?{" "}
-                          <Link href={`/auth/register`}>Register</Link>
+                          Hesabınız yoxdur?{" "}
+                          <Link href={`/auth/register`}>Qeydiyyat</Link>
                         </p>
-                      </div>
-                      <div className="sub-bot">
-                        <span className="body-text-">Support</span>
                       </div>
                     </div>
                   </li>
@@ -169,7 +135,7 @@ export default function Header() {
               <div className="tf-list-categories">
                 <a href="#" className="categories-title">
                   <span className="icon-left icon-squares-four" />
-                  <span className="text">Shop By Categories</span>
+                  <span className="text">Kateqoriyalar</span>
                   <span className="icon icon-arrow-down" />
                 </a>
                 <CategoryList />

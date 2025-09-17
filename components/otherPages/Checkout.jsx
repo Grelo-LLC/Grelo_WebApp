@@ -419,7 +419,7 @@ export default function Checkout() {
                   {cartProducts.map((elm, i) => (
                     <div key={i} className="item-product">
                       <Link
-                        href={`/product-detail/${elm.id}`}
+                        href={`/store/product-detail/${elm.id}`}
                         className="img-product"
                       >
                         <Image
@@ -432,7 +432,7 @@ export default function Checkout() {
                       <div className="content-box">
                         <div className="info">
                           <Link
-                            href={`/product-detail/${elm.id}`}
+                            href={`/store/product-detail/${elm.id}`}
                             className="name-product link text-title"
                           >
                             {elm.title}
@@ -474,9 +474,8 @@ export default function Checkout() {
                     {discounts.map((item, index) => (
                       <SwiperSlide key={index}>
                         <div
-                          className={`box-discount ${
-                            activeDiscountIndex === index ? "active" : ""
-                          }`}
+                          className={`box-discount ${activeDiscountIndex === index ? "active" : ""
+                            }`}
                           onClick={() => setActiveDiscountIndex(index)}
                         >
                           <div className="discount-top">

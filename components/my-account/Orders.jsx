@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-export default function Orers() {
+export default function Orders() {
   return (
     <div className="my-account-content">
       <div className="account-orders">
@@ -23,35 +23,7 @@ export default function Orers() {
                 <td>$200.0 for 1 items</td>
                 <td>
                   <Link
-                    href={`/my-account-orders-details`}
-                    className="tf-btn btn-fill radius-4"
-                  >
-                    <span className="text">View</span>
-                  </Link>
-                </td>
-              </tr>
-              <tr className="tf-order-item">
-                <td>#345</td>
-                <td>August 2, 2024</td>
-                <td>On hold</td>
-                <td>$300.0 for 1 items</td>
-                <td>
-                  <Link
-                    href={`/my-account-orders-details`}
-                    className="tf-btn btn-fill radius-4"
-                  >
-                    <span className="text">View</span>
-                  </Link>
-                </td>
-              </tr>
-              <tr className="tf-order-item">
-                <td>#567</td>
-                <td>August 3, 2024</td>
-                <td>On hold</td>
-                <td>$400.0 for 1 items</td>
-                <td>
-                  <Link
-                    href={`/my-account-orders-details`}
+                    href={`/my-account/order-details`}
                     className="tf-btn btn-fill radius-4"
                   >
                     <span className="text">View</span>

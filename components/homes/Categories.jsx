@@ -1,10 +1,52 @@
 "use client";
-
-import { categories5 } from "@/data/collections";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navigation, Pagination } from "swiper/modules";
+
+const categories5 = [
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic1.jpg",
+    alt: "collection-img",
+    title: "Electronics",
+  },
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic2.jpg",
+    alt: "collection-img",
+    title: "Appliances",
+  },
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic3.jpg",
+    alt: "collection-img",
+    title: "Kitchen",
+  },
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic4.jpg",
+    alt: "collection-img",
+    title: "Audio",
+  },
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic5.jpg",
+    alt: "collection-img",
+    title: "Smart Home",
+  },
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic6.jpg",
+    alt: "collection-img",
+    title: "Game",
+  },
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic7.jpg",
+    alt: "collection-img",
+    title: "Office",
+  },
+  {
+    imgSrc: "/images/collections/collection-circle/cls-electronic1.jpg",
+    alt: "collection-img",
+    title: "Electronics",
+  },
+];
+
 export default function Categories() {
   return (
     <section className="flat-spacing-4">
@@ -40,7 +82,7 @@ export default function Categories() {
             {categories5.map((category, index) => (
               <SwiperSlide key={index}>
                 <div className="collection-circle hover-img">
-                  <Link href={`/shop-categories-top`} className="img-style">
+                  <Link href={`/store/products`} className="img-style">
                     <Image
                       className="lazyload"
                       data-src={category.imgSrc}
@@ -52,7 +94,7 @@ export default function Categories() {
                   </Link>
                   <div className="collection-content text-center">
                     <div>
-                      <Link href={`/shop-categories-top`} className="cls-title">
+                      <Link href={`/store/products`} className="cls-title">
                         <h6 className="text">{category.title}</h6>
                         <i className="icon icon-arrowUpRight" />
                       </Link>

@@ -203,58 +203,6 @@ export const collections4 = [
   },
 ];
 
-export const collectionData = [
-  {
-    id: 1,
-    imageSrc: "/images/collections/cls9.jpg",
-    title: "Dresses",
-    itemCount: 12,
-    delay: "0s",
-  },
-  {
-    id: 2,
-    imageSrc: "/images/collections/cls10.jpg",
-    title: "Tops",
-    itemCount: 12,
-    delay: "0.1s",
-  },
-  {
-    id: 3,
-    imageSrc: "/images/collections/cls11.jpg",
-    title: "Bottoms",
-    itemCount: 12,
-    delay: "0.2s",
-  },
-  {
-    id: 4,
-    imageSrc: "/images/collections/cls12.jpg",
-    title: "Outerwear",
-    itemCount: 12,
-    delay: "0.3s",
-  },
-  {
-    id: 5,
-    imageSrc: "/images/collections/cls4.jpg",
-    title: "Shoes",
-    itemCount: 12,
-    delay: "0.4s",
-  },
-  {
-    id: 6,
-    imageSrc: "/images/collections/cls6.jpg",
-    title: "Accessories",
-    itemCount: 12,
-    delay: "0.5s",
-  },
-  {
-    id: 7,
-    imageSrc: "/images/collections/cls12.jpg",
-    title: "Outerwear",
-    itemCount: 12,
-    delay: "0.6s",
-  },
-];
-
 export const categories2 = [
   {
     id: 1,
@@ -786,20 +734,6 @@ export const categories4 = [
   },
 ];
 
-export const collectionData2 = [
-  {
-    imgSrc: "/images/collections/banner-collection/banner-cls26.jpg",
-    alt: "banner-cls",
-    title: "Capsule Collection",
-    description: "Reserved for special occasions",
-  },
-  {
-    imgSrc: "/images/collections/banner-collection/banner-cls27.jpg",
-    alt: "banner-cls",
-    title: "New Arrival",
-    description: "Reserved for special occasions",
-  },
-];
 
 export const collectionsData3 = [
   {
@@ -855,100 +789,6 @@ export const collectionItems5 = [
     title: "Delicious and nutritious blends.",
     description: "Smoothie Essentials Bundle Start from $22",
     delay: "0.2s",
-  },
-];
-
-export const collectionData3 = [
-  {
-    imgSrc: "/images/collections/banner-collection/banner-cls30.jpg",
-    alt: "banner-cls",
-    title: "Men's Socks",
-  },
-  {
-    imgSrc: "/images/collections/banner-collection/banner-cls31.jpg",
-    alt: "banner-cls",
-    title: "Women's Socks",
-  },
-  {
-    imgSrc: "/images/collections/banner-collection/banner-cls32.jpg",
-    alt: "banner-cls",
-    title: "Kid's Socks",
-  },
-];
-
-export const collectionData4 = [
-  {
-    imgSrc: "/images/collections/collection-circle/cls-camping1.jpg",
-    title: "New in",
-    count: "12 items",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-camping2.jpg",
-    title: "Promotion",
-    count: "12 items",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-camping3.jpg",
-    title: "Clothing",
-    count: "12 items",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-camping4.jpg",
-    title: "Shoes",
-    count: "12 items",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-camping5.jpg",
-    title: "Bags",
-    count: "12 items",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-camping1.jpg",
-    title: "New in",
-    count: "12 items",
-  },
-];
-
-export const categories5 = [
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic1.jpg",
-    alt: "collection-img",
-    title: "Electronics",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic2.jpg",
-    alt: "collection-img",
-    title: "Appliances",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic3.jpg",
-    alt: "collection-img",
-    title: "Kitchen",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic4.jpg",
-    alt: "collection-img",
-    title: "Audio",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic5.jpg",
-    alt: "collection-img",
-    title: "Smart Home",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic6.jpg",
-    alt: "collection-img",
-    title: "Game",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic7.jpg",
-    alt: "collection-img",
-    title: "Office",
-  },
-  {
-    imgSrc: "/images/collections/collection-circle/cls-electronic1.jpg",
-    alt: "collection-img",
-    title: "Electronics",
   },
 ];
 

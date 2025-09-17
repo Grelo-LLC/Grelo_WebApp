@@ -130,7 +130,7 @@ export default function ShopCart() {
                         <tr key={i} className="tf-cart-item file-delete">
                           <td className="tf-cart-item_product">
                             <Link
-                              href={`/product-detail/${elm.id}`}
+                              href={`/store/product-detail/${elm.id}`}
                               className="img-box"
                             >
                               <Image
@@ -142,7 +142,7 @@ export default function ShopCart() {
                             </Link>
                             <div className="cart-info">
                               <Link
-                                href={`/product-detail/${elm.id}`}
+                                href={`/store/product-detail/${elm.id}`}
                                 className="cart-title link"
                               >
                                 {elm.title}
@@ -239,9 +239,8 @@ export default function ShopCart() {
                     {discounts.map((item, index) => (
                       <div
                         key={index}
-                        className={`box-discount ${
-                          activeDiscountIndex === index ? "active" : ""
-                        }`}
+                        className={`box-discount ${activeDiscountIndex === index ? "active" : ""
+                          }`}
                         onClick={() => setActiveDiscountIndex(index)}
                       >
                         <div className="discount-top">

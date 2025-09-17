@@ -8,8 +8,8 @@ import Header from "@/components/headers/Header";
 import Features from "@/components/common/Features";
 
 export const metadata = {
-  title: "About Us || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Haqqımızda - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function AboutUsPage() {
@@ -30,14 +30,6 @@ export default function AboutUsPage() {
                   <Link className="link" href={`/`}>
                     Homepage
                   </Link>
-                </li>
-                <li>
-                  <i className="icon-arrRight" />
-                </li>
-                <li>
-                  <a className="link" href="#">
-                    Pages
-                  </a>
                 </li>
                 <li>
                   <i className="icon-arrRight" />

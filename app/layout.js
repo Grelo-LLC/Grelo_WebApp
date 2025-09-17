@@ -19,7 +19,6 @@ export default function RootLayout({ children }) {
     }
   }, []);
 
-  // Scroll zamanı header classList idarəsi
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector("header");
@@ -96,7 +95,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className="preload-wrapper popup-loader">
+      <body className="preload-wrapper popup-loader" cz-shortcut-listen="true">
         <Context>
           <div id="wrapper">
             {children}

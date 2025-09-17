@@ -2,9 +2,8 @@ import ForgotPass from "@/components/auth/ForgotPass";
 import React from "react";
 
 export const metadata = {
-  title:
-    "Forgot Password || Modave - Multipurpose React Nextjs eCommerce Template",
-  description: "Modave - Multipurpose React Nextjs eCommerce Template",
+  title: "Şifrəmi Unutdum - Grelo.Az",
+  description: "Grelo Agro Saytıdır",
 };
 
 export default function ForgotPasswordPage() {

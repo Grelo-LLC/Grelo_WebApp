@@ -7,6 +7,7 @@ import AuthImg from "./AuthImg";
 export default function Login() {
   const [passwordType, setPasswordType] = useState("password");
   const [isMobile, setIsMobile] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const togglePassword = () => {
     setPasswordType((prevType) =>
@@ -24,6 +25,25 @@ export default function Login() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    let newErrors = {};
+
+    if (!formData.get("email")) {
+      newErrors.email = "Email vacibdir!";
+    }
+    if (!formData.get("password")) {
+      newErrors.password = "Şifrə vacibdir!";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      alert("Giriş uğurla edildi ✅");
+    }
+  };
 
   return (
     <section style={{ display: "flex", minHeight: "100vh" }}>
@@ -54,35 +74,39 @@ export default function Login() {
         <div className="login-wrap" style={{ maxWidth: "400px", width: "100%" }}>
           <div className="left">
             <div className="heading">
-              <h4>Login</h4>
+              <h4>Giriş</h4>
             </div>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSubmit}
               className="form-login form-has-password"
             >
               <div className="wrap">
-                <fieldset className="">
+                <fieldset>
                   <input
-                    className=""
+                    className="text-black"
                     type="email"
-                    placeholder="Username or email address*"
+                    placeholder="Email *"
                     name="email"
-                    tabIndex={2}
-                    defaultValue=""
-                    aria-required="true"
-                    required
+                    style={{
+                      backgroundColor: errors.email ? "#ffdddb" : "",
+                      border: errors.email ? "1px solid red" : "",
+                    }}
                   />
+                  {errors.email && (
+                    <small className="text-danger">{errors.email}</small>
+                  )}
                 </fieldset>
+
                 <fieldset className="position-relative password-item">
                   <input
-                    className="input-password"
+                    className="text-black"
                     type={passwordType}
-                    placeholder="Password*"
+                    placeholder="Şifrə *"
                     name="password"
-                    tabIndex={2}
-                    defaultValue=""
-                    aria-required="true"
-                    required
+                    style={{
+                      backgroundColor: errors.password ? "#ffdddb" : "",
+                      border: errors.password ? "1px solid red" : "",
+                    }}
                   />
                   <span
                     className={`toggle-password ${!(passwordType === "text") ? "unshow" : ""
@@ -94,7 +118,11 @@ export default function Login() {
                         }-line`}
                     />
                   </span>
+                  {errors.password && (
+                    <small className="text-danger">{errors.password}</small>
+                  )}
                 </fieldset>
+
                 <div className="d-flex align-items-center justify-content-between">
                   <div className="tf-cart-checkbox">
                     <div className="tf-checkbox-wrapp">
@@ -109,21 +137,35 @@ export default function Login() {
                         <i className="icon-check" />
                       </div>
                     </div>
-                    <label htmlFor="login-form_agree"> Remember me </label>
+                    <label htmlFor="login-form_agree"> Xatırla </label>
                   </div>
                   <Link
-                    href={`/forget-password`}
+                    href={`/auth/forget-password`}
                     className="font-2 text-button forget-password link"
                   >
-                    Forgot Your Password?
+                    Şifrəmi unutdum?
                   </Link>
                 </div>
               </div>
+
+              <div className="d-flex align-items-center justify-content-between mb-2">
+                <div className="tf-cart-checkbox">
+                  <label htmlFor="login-form_agree"> Hesabınız yoxdur? </label>
+                </div>
+                <Link
+                  href={`/auth/register`}
+                  className="font-2 text-button forget-password link"
+                >
+                  Qeydiyyat
+                </Link>
+              </div>
+
               <div className="button-submit">
                 <button className="tf-btn btn-fill" type="submit">
-                  <span className="text text-button">Submit</span>
+                  <span className="text text-button">Giriş edin</span>
                 </button>
               </div>
+
             </form>
           </div>
         </div>

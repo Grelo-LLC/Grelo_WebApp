@@ -6,6 +6,8 @@ import AuthImg from "./AuthImg";
 export default function Otp() {
     const inputsRef = useRef([]);
     const [isMobile, setIsMobile] = useState(false);
+    const [errors, setErrors] = useState("");
+    const [otp, setOtp] = useState(Array(6).fill(""));
 
     const handleChange = (e, index) => {
         let value = e.target.value;
@@ -15,15 +17,32 @@ export default function Otp() {
             return;
         }
 
+        const newOtp = [...otp];
+        newOtp[index] = value;
+        setOtp(newOtp);
+
         if (value && index < inputsRef.current.length - 1) {
             inputsRef.current[index + 1].focus();
         }
+
+        if (errors) setErrors("");
     };
 
     const handleKeyDown = (e, index) => {
         if (e.key === "Backspace" && !e.target.value && index > 0) {
             inputsRef.current[index - 1].focus();
         }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (otp.some((digit) => digit === "")) {
+            setErrors("Bütün xanaları doldurmaq vacibdir!");
+            return;
+        }
+
+        console.log("OTP kodu:", otp.join(""));
     };
 
     useEffect(() => {
@@ -66,16 +85,16 @@ export default function Otp() {
                 <div className="login-wrap" style={{ maxWidth: "400px", width: "100%" }}>
                     <div className="left">
                         <div className="heading">
-                            <h4 className="mb_8">Check your email</h4>
-                            <p>Enter the 6-digit code we sent to your email</p>
+                            <h4 className="mb_8">Email ünvanınızı yoxlayın</h4>
+                            <p>Email ünvanınıza göndərilən 6 rəqəmli kodu daxil edin</p>
                         </div>
-                        <form onSubmit={(e) => e.preventDefault()} className="form-login">
+                        <form onSubmit={handleSubmit} className="form-login">
                             <div
                                 style={{
                                     display: "flex",
                                     justifyContent: "space-between",
                                     gap: "10px",
-                                    marginBottom: "20px",
+                                    marginBottom: "10px",
                                 }}
                             >
                                 {Array.from({ length: 6 }).map((_, index) => (
@@ -93,15 +112,18 @@ export default function Otp() {
                                             height: "50px",
                                             textAlign: "center",
                                             fontSize: "20px",
-                                            border: "1px solid #ddd",
+                                            border: errors ? "1px solid red" : "1px solid #ddd",
+                                            backgroundColor: errors ? "#ffdddb" : "",
                                             borderRadius: "6px",
                                         }}
+                                        className={errors ? "placeholder-red" : ""}
                                     />
                                 ))}
                             </div>
-                            <div className="button-submit">
+                            {errors && <small className="text-danger">{errors}</small>}
+                            <div className="button-submit" style={{ marginTop: "15px" }}>
                                 <button className="tf-btn btn-fill" type="submit">
-                                    <span className="text text-button">Submit</span>
+                                    <span className="text text-button">Təsdiqlə</span>
                                 </button>
                             </div>
                         </form>

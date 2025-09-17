@@ -1,20 +1,18 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import LanguageSelect from "../common/LanguageSelect";
 import ToolbarBottom from "../headers/ToolbarBottom";
 import ScrollTop from "../common/ScrollTop";
 import { footerLinks, socialLinks } from "@/data/footerLinks";
 import axios from "axios";
+
 export default function Footer({
   border = true,
   dark = false,
   hasPaddingBottom = false,
 }) {
-  const [success, setSuccess] = useState(true);
-  const [showMessage, setShowMessage] = useState(false);
 
   const handleShowMessage = () => {
     setShowMessage(true);
@@ -24,7 +22,7 @@ export default function Footer({
   };
 
   const sendEmail = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault();
     const email = e.target.email.value;
 
     try {
@@ -36,18 +34,18 @@ export default function Footer({
       );
 
       if ([200, 201].includes(response.status)) {
-        e.target.reset(); // Reset the form
-        setSuccess(true); // Set success state
+        e.target.reset();
+        setSuccess(true);
         handleShowMessage();
       } else {
-        setSuccess(false); // Handle unexpected responses
+        setSuccess(false);
         handleShowMessage();
       }
     } catch (error) {
       console.error("Error:", error.response?.data || "An error occurred");
-      setSuccess(false); // Set error state
+      setSuccess(false);
       handleShowMessage();
-      e.target.reset(); // Reset the form
+      e.target.reset();
     }
   };
   useEffect(() => {
@@ -70,13 +68,13 @@ export default function Footer({
       heading.addEventListener("click", toggleOpen);
     });
 
-    // Clean up event listeners when the component unmounts
+
     return () => {
       headings.forEach((heading) => {
         heading.removeEventListener("click", toggleOpen);
       });
     };
-  }, []); // Empty dependency array means this will run only once on mount
+  }, []);
   return (
     <>
       <footer
@@ -88,7 +86,7 @@ export default function Footer({
           <div className="footer-body">
             <div className="container">
               <div className="row">
-                <div className="col-lg-4">
+                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div className="footer-infor">
                     <div className="footer-logo">
                       <Link href={`/`}>
@@ -105,23 +103,15 @@ export default function Footer({
                         />
                       </Link>
                     </div>
-                    <div className="footer-address">
-                      <p>549 Oak St.Crystal Lake, IL 60014</p>
-                      <Link
-                        href={`/contact`}
-                        className={`tf-btn-default fw-6 ${dark ? "style-white" : ""
-                          } `}
-                      >
-                        GET DIRECTION
-                        <i className="icon-arrowUpRight" />
-                      </Link>
-                    </div>
                     <ul className="footer-info">
-                      <li>
+                      <li className="mb-2">
+                        <p>549 Oak St.Crystal Lake, IL 60014</p>
+                      </li>
+                      <li className="mb-2">
                         <i className="icon-mail" />
                         <p>themesflat@gmail.com</p>
                       </li>
-                      <li>
+                      <li className="mb-2">
                         <i className="icon-phone" />
                         <p>315-666-6688</p>
                       </li>
@@ -131,7 +121,7 @@ export default function Footer({
                         } `}
                     >
                       {socialLinks.map((link, index) => (
-                        <li key={index}>
+                        <li key={index} className="me-1">
                           <a href={link.href} className={link.className}>
                             <i className={`icon ${link.iconClass}`} />
                           </a>
@@ -140,7 +130,7 @@ export default function Footer({
                     </ul>
                   </div>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div className="footer-menu">
                     {footerLinks.map((section, sectionIndex) => (
                       <div className="footer-col-block" key={sectionIndex}>
@@ -154,7 +144,7 @@ export default function Footer({
                                 {item.isLink ? (
                                   <Link
                                     href={item.href}
-                                    className="footer-menu_item"
+                                    className="footer-menu_item hover:text-white"
                                   >
                                     {item.label}
                                   </Link>
@@ -174,87 +164,6 @@ export default function Footer({
                     ))}
                   </div>
                 </div>
-                <div className="col-lg-4">
-                  <div className="footer-col-block">
-                    <div className="footer-heading text-button footer-heading-mobile">
-                      Newletter
-                    </div>
-                    <div className="tf-collapse-content">
-                      <div className="footer-newsletter">
-                        <p className="text-caption-1">
-                          Sign up for our newsletter and get 10% off your first
-                          purchase
-                        </p>
-                        <div
-                          className={`tfSubscribeMsg  footer-sub-element ${showMessage ? "active" : ""
-                            }`}
-                        >
-                          {success ? (
-                            <p style={{ color: "rgb(52, 168, 83)" }}>
-                              You have successfully subscribed.
-                            </p>
-                          ) : (
-                            <p style={{ color: "red" }}>Something went wrong</p>
-                          )}
-                        </div>
-                        <form
-                          onSubmit={sendEmail}
-                          className={`form-newsletter subscribe-form ${dark ? "style-black" : ""
-                            }`}
-                        >
-                          <div className="subscribe-content">
-                            <fieldset className="email">
-                              <input
-                                type="email"
-                                name="email"
-                                className="subscribe-email"
-                                placeholder="Enter your e-mail"
-                                tabIndex={0}
-                                aria-required="true"
-                              />
-                            </fieldset>
-                            <div className="button-submit">
-                              <button
-                                className="subscribe-button"
-                                type="submit"
-                              >
-                                <i className="icon icon-arrowUpRight" />
-                              </button>
-                            </div>
-                          </div>
-                          <div className="subscribe-msg" />
-                        </form>
-                        <div className="tf-cart-checkbox">
-                          <div className="tf-checkbox-wrapp">
-                            <input
-                              className=""
-                              type="checkbox"
-                              id="footer-Form_agree"
-                              name="agree_checkbox"
-                            />
-                            <div>
-                              <i className="icon-check" />
-                            </div>
-                          </div>
-                          <label
-                            className="text-caption-1"
-                            htmlFor="footer-Form_agree"
-                          >
-                            By clicking subcribe, you agree to the{" "}
-                            <Link className="fw-6 link" href={`/term-of-use`}>
-                              Terms of Service
-                            </Link>{" "}
-                            and{" "}
-                            <a className="fw-6 link" href="#">
-                              Privacy Policy
-                            </a>
-                            .
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -262,72 +171,11 @@ export default function Footer({
             <div className="container">
               <div className="row">
                 <div className="col-12">
-                  <div className="footer-bottom-wrap">
+                  <div className="footer-bottom-wrap flex align-items-center justify-content-center">
                     <div className="left">
                       <p className="text-caption-1">
-                        ©{new Date().getFullYear()} Modave. All Rights Reserved.
+                        {new Date().getFullYear()} ©  Grelo. Bütün hüquqlar qorunur.
                       </p>
-                      <div className="tf-cur justify-content-end">
-                        <div className="tf-languages">
-                          <LanguageSelect
-                            parentClassName={`image-select center style-default type-languages ${dark ? "color-white" : ""
-                              }`}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="tf-payment">
-                      <p className="text-caption-1">Payment:</p>
-                      <ul>
-                        <li>
-                          <Image
-                            alt=""
-                            src="/images/payment/img-1.png"
-                            width={100}
-                            height={64}
-                          />
-                        </li>
-                        <li>
-                          <Image
-                            alt=""
-                            src="/images/payment/img-2.png"
-                            width={100}
-                            height={64}
-                          />
-                        </li>
-                        <li>
-                          <Image
-                            alt=""
-                            src="/images/payment/img-3.png"
-                            width={100}
-                            height={64}
-                          />
-                        </li>
-                        <li>
-                          <Image
-                            alt=""
-                            src="/images/payment/img-4.png"
-                            width={98}
-                            height={64}
-                          />
-                        </li>
-                        <li>
-                          <Image
-                            alt=""
-                            src="/images/payment/img-5.png"
-                            width={102}
-                            height={64}
-                          />
-                        </li>
-                        <li>
-                          <Image
-                            alt=""
-                            src="/images/payment/img-6.png"
-                            width={98}
-                            height={64}
-                          />
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>

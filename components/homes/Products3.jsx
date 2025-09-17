@@ -20,7 +20,7 @@ export default function Products3() {
                 >
                   <div className="card-product-wrapper">
                     <Link
-                      href={`/product-detail/${product.id}`}
+                      href={`/store/product-detail/${product.id}`}
                       className="product-img"
                     >
                       <Image
@@ -48,7 +48,7 @@ export default function Products3() {
                   </div>
                   <div className="card-product-info">
                     <Link
-                      href={`/product-detail/${product.id}`}
+                      href={`/store/product-detail/${product.id}`}
                       className="title link"
                     >
                       {product.title}
@@ -105,7 +105,7 @@ export default function Products3() {
                 >
                   <div className="card-product-wrapper">
                     <Link
-                      href={`/product-detail/${product.id}`}
+                      href={`/store/product-detail/${product.id}`}
                       className="product-img"
                     >
                       <Image
@@ -133,7 +133,7 @@ export default function Products3() {
                   </div>
                   <div className="card-product-info">
                     <Link
-                      href={`/product-detail/${product.id}`}
+                      href={`/store/product-detail/${product.id}`}
                       className="title link"
                     >
                       {product.title}
@@ -190,7 +190,7 @@ export default function Products3() {
                 >
                   <div className="card-product-wrapper">
                     <Link
-                      href={`/product-detail/${product.id}`}
+                      href={`/store/product-detail/${product.id}`}
                       className="product-img"
                     >
                       <Image
@@ -218,7 +218,7 @@ export default function Products3() {
                   </div>
                   <div className="card-product-info">
                     <Link
-                      href={`/product-detail/${product.id}`}
+                      href={`/store/product-detail/${product.id}`}
                       className="title link"
                     >
                       {product.title}

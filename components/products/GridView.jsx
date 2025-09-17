@@ -6,7 +6,7 @@ export default function GridView({ products, pagination = true }) {
   return (
     <>
       {products.map((product, index) => (
-        <ProductCard3 product={product} />
+        <ProductCard3 product={product} key={index} />
       ))}
 
       {pagination ? (

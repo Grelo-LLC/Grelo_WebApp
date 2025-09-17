@@ -2,12 +2,12 @@ import React from "react";
 
 export default function CategoryList() {
   return (
-    <div className="list-categories-inner">
+    <div className="list-categories-inner bg-black">
       <ul>
         <li className="sub-categories2">
           <a href="#" className="categories-item">
             <span className="inner-left">
-              Accessories
+              Aksesuar
             </span>
             <i className="icon icon-arrRight" />
           </a>
@@ -15,7 +15,7 @@ export default function CategoryList() {
             <li>
               <a href="#" className="categories-item">
                 <span className="inner-left">
-                  Camera
+                  Kamera
                 </span>
               </a>
             </li>
@@ -24,7 +24,7 @@ export default function CategoryList() {
         <li>
           <a href="#" className="categories-item">
             <span className="inner-left">
-              Smart Phones
+              Smartfonlar
             </span>
           </a>
         </li>

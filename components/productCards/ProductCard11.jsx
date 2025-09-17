@@ -24,12 +24,11 @@ export default function ProductCard11({ product, gridClass = "" }) {
 
   return (
     <div
-      className={`card-product style-6 wow fadeInUp ${gridClass} ${
-        product.isOnSale ? "on-sale" : ""
-      } ${product.sizes ? "card-product-size" : ""}`}
+      className={`card-product style-6 wow fadeInUp ${gridClass} ${product.isOnSale ? "on-sale" : ""
+        } ${product.sizes ? "card-product-size" : ""}`}
     >
       <div className="card-product-wrapper">
-        <Link href={`/product-detail/${product.id}`} className="product-img">
+        <Link href={`/store/product-detail/${product.id}`} className="product-img">
           <Image
             className="lazyload img-product"
             src={currentImage}
@@ -213,7 +212,7 @@ export default function ProductCard11({ product, gridClass = "" }) {
         </div>
       </div>
       <div className="card-product-info">
-        <Link href={`/product-detail/${product.id}`} className="title link">
+        <Link href={`/store/product-detail/${product.id}`} className="title link">
           {product.title}
         </Link>
         <span className="price">
@@ -227,9 +226,8 @@ export default function ProductCard11({ product, gridClass = "" }) {
             {product.colors.map((color, index) => (
               <li
                 key={index}
-                className={`list-color-item color-swatch ${
-                  currentImage == color.imgSrc ? "active" : ""
-                }  ${color.bgColor == "bg-white" ? "line" : ""}`}
+                className={`list-color-item color-swatch ${currentImage == color.imgSrc ? "active" : ""
+                  }  ${color.bgColor == "bg-white" ? "line" : ""}`}
                 onMouseOver={() => setCurrentImage(color.imgSrc)}
               >
                 <span className={`swatch-value ${color.bgColor}`} />

@@ -26,10 +26,10 @@ export default function Products() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLg(window.innerWidth >= 1200); // Bootstrap `lg` breakpoint = 1200px
+      setIsLg(window.innerWidth >= 1200);
     };
 
-    handleResize(); // ilk yüklənmədə yoxla
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);

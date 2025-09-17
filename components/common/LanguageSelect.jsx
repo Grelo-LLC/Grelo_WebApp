@@ -1,8 +1,10 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 const languageOptions = [
-  { id: "en", label: "English" },
-  { id: "vt", label: "Vietnam" },
+  { id: "az", label: "AZ" },
+  { id: "tr", label: "TR" },
+  { id: "ru", label: "RU" },
+  { id: "en", label: "EN" },
 ];
 
 export default function LanguageSelect({
@@ -19,13 +21,12 @@ export default function LanguageSelect({
         languageSelect.current &&
         !languageSelect.current.contains(event.target)
       ) {
-        setIsDDOpen(false); // Close the dropdown if click is outside
+        setIsDDOpen(false);
       }
     };
-    // Add the event listener when the component mounts
+   
     document.addEventListener("click", handleClickOutside);
-
-    // Cleanup the event listener when the component unmounts
+   
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
