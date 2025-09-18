@@ -120,6 +120,7 @@ export default function Otp() {
                                     />
                                 ))}
                             </div>
+
                             {errors && <small className="text-danger">{errors}</small>}
                             <div className="button-submit" style={{ marginTop: "15px" }}>
                                 <button className="tf-btn btn-fill" type="submit">

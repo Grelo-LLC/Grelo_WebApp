@@ -1,12 +1,27 @@
 "use client";
+
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import ToolbarBottom from "../headers/ToolbarBottom";
 import ScrollTop from "../common/ScrollTop";
-import { footerLinks, socialLinks } from "@/data/footerLinks";
 import axios from "axios";
+
+const socialLinks = [
+  { href: "#", className: "social-facebook", iconClass: "icon-fb" },
+  { href: "#", className: "social-instagram", iconClass: "icon-instagram" },
+  { href: "#", className: "social-tiktok", iconClass: "icon-tiktok" },
+];
+
+const footerLinks = [
+  {
+    heading: "Customer Services",
+    items: [
+      { label: "Terms of Use", href: "/page/term-of-use", isLink: false },
+      { label: "FAQs", href: "/page/FAQs", isLink: true },
+    ],
+  },
+];
 
 export default function Footer({
   border = true,

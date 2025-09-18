@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 
 export default function Information() {
@@ -236,15 +237,13 @@ export default function Information() {
                 required
               />
               <span
-                className={`toggle-password ${
-                  !(passwordType === "text") ? "unshow" : ""
-                }`}
+                className={`toggle-password ${!(passwordType === "text") ? "unshow" : ""
+                  }`}
                 onClick={togglePassword}
               >
                 <i
-                  className={`icon-eye-${
-                    !(passwordType === "text") ? "hide" : "show"
-                  }-line`}
+                  className={`icon-eye-${!(passwordType === "text") ? "hide" : "show"
+                    }-line`}
                 />
               </span>
             </fieldset>
@@ -260,15 +259,13 @@ export default function Information() {
                 required
               />
               <span
-                className={`toggle-password ${
-                  !(newPasswordType === "text") ? "unshow" : ""
-                }`}
+                className={`toggle-password ${!(newPasswordType === "text") ? "unshow" : ""
+                  }`}
                 onClick={toggleNewPassword}
               >
                 <i
-                  className={`icon-eye-${
-                    !(newPasswordType === "text") ? "hide" : "show"
-                  }-line`}
+                  className={`icon-eye-${!(newPasswordType === "text") ? "hide" : "show"
+                    }-line`}
                 />
               </span>
             </fieldset>
@@ -284,15 +281,13 @@ export default function Information() {
                 required
               />
               <span
-                className={`toggle-password ${
-                  !(confirmPasswordType === "text") ? "unshow" : ""
-                }`}
+                className={`toggle-password ${!(confirmPasswordType === "text") ? "unshow" : ""
+                  }`}
                 onClick={toggleConfirmPassword}
               >
                 <i
-                  className={`icon-eye-${
-                    !(confirmPasswordType === "text") ? "hide" : "show"
-                  }-line`}
+                  className={`icon-eye-${!(confirmPasswordType === "text") ? "hide" : "show"
+                    }-line`}
                 />
               </span>
             </fieldset>

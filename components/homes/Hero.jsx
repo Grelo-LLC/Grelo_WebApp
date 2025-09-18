@@ -5,6 +5,7 @@ import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function Hero() {
   return (
     <div className="tf-slideshow slider-style2 slider-electronic slider-position slider-effect-fade">

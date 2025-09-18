@@ -3,9 +3,6 @@ import React from "react";
 export default function FilterMeta({ allProps, productLength }) {
   return (
     <div className="meta-filter-shop" style={{}}>
-      <div id="product-count-grid" className="count-text">
-        <span className="count">{productLength}</span> Products Found
-      </div>
 
       <div id="applied-filters">
         {allProps.availability != "All" ? (

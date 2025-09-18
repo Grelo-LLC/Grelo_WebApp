@@ -1,10 +1,8 @@
 "use client";
 
 import {
-  availabilityOptions,
   brands,
   categories,
-  colors,
   sizes,
 } from "@/data/productFilterOptions";
 import { productMain } from "@/data/products";
@@ -90,54 +88,6 @@ export default function FilterModal({ allProps }) {
               >
                 Free Size
               </span>
-            </div>
-          </div>
-          <div className="widget-facet facet-color">
-            <h6 className="facet-title">Colors</h6>
-            <div className="facet-color-box">
-              {colors.map((color, index) => (
-                <div
-                  onClick={() => allProps.setColor(color)}
-                  key={index}
-                  className={`color-item color-check ${
-                    color == allProps.color ? "active" : ""
-                  }`}
-                >
-                  <span className={`color ${color.className}`} />
-                  {color.name}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="widget-facet facet-fieldset">
-            <h6 className="facet-title">Availability</h6>
-            <div className="box-fieldset-item">
-              {availabilityOptions.map((option, index) => (
-                <fieldset
-                  key={index}
-                  className="fieldset-item"
-                  onClick={() => allProps.setAvailability(option)}
-                >
-                  <input
-                    type="radio"
-                    name="availability"
-                    className="tf-check"
-                    readOnly
-                    checked={allProps.availability === option}
-                  />
-                  <label>
-                    {option.label}{" "}
-                    <span className="count-stock">
-                      (
-                      {
-                        productMain.filter((el) => el.inStock == option.value)
-                          .length
-                      }
-                      )
-                    </span>
-                  </label>
-                </fieldset>
-              ))}
             </div>
           </div>
           <div className="widget-facet facet-fieldset">

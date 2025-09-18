@@ -113,9 +113,7 @@ export default function BusinessForm() {
                     className={`toggle-password ${!(passwordType === "text") ? "unshow" : ""}`}
                     onClick={togglePassword}
                 >
-                    <i
-                        className={`icon-eye-${!(passwordType === "text") ? "hide" : "show"}-line`}
-                    />
+                    <i className={`icon-eye-${!(passwordType === "text") ? "hide" : "show"}-line`} />
                 </span>
                 {errors.password && (
                     <small className="text-danger">{errors.password}</small>

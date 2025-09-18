@@ -1,10 +1,12 @@
 "use client";
+
 import { allProducts } from "@/data/products";
 import { openWistlistModal } from "@/utlis/openWishlist";
 import React, { useEffect } from "react";
 import { useContext, useState } from "react";
 
 const dataContext = React.createContext();
+
 export const useContextElement = () => {
   return useContext(dataContext);
 };

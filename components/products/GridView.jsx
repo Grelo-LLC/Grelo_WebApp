@@ -1,12 +1,12 @@
 import React from "react";
 import Pagination from "../common/Pagination";
-import ProductCard3 from "../productCards/ProductCard3";
+import ProductCard from "../productCards/ProductCard";
 
 export default function GridView({ products, pagination = true }) {
   return (
     <>
       {products.map((product, index) => (
-        <ProductCard3 product={product} key={index} />
+        <ProductCard product={product} key={index} />
       ))}
 
       {pagination ? (

@@ -98,9 +98,6 @@ export default function Details({ product }) {
                             <div className="compare-at-price font-2">
                               ${product.oldPrice.toFixed(2)}
                             </div>
-                            <div className="badges-on-sale text-btn-uppercase">
-                              -25%
-                            </div>
                           </>
                         )}
                       </div>

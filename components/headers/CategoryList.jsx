@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CategoryList() {
   return (
-    <div className="list-categories-inner bg-black">
+    <div className="list-categories-inner">
       <ul>
         <li className="sub-categories2">
           <a href="#" className="categories-item">

@@ -142,10 +142,7 @@ export default function SetNewPass() {
                                             }`}
                                         onClick={toggleConfirmPassword}
                                     >
-                                        <i
-                                            className={`icon-eye-${!(confirmPasswordType === "text") ? "hide" : "show"
-                                                }-line`}
-                                        />
+                                        <i className={`icon-eye-${!(confirmPasswordType === "text") ? "hide" : "show" }-line`} />
                                     </span>
                                     {errors.confirmPassword && (
                                         <small className="text-danger">{errors.confirmPassword}</small>

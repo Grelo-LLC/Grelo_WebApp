@@ -1,10 +1,11 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useContextElement } from "@/context/Context";
-import CountdownTimer from "../common/Countdown";
-export default function ProductCard3({ product }) {
+
+export default function ProductCard({ product }) {
   const [currentImage, setCurrentImage] = useState(product.imgSrc);
 
   const {
@@ -42,30 +43,6 @@ export default function ProductCard3({ product }) {
         {product.isOnSale && (
           <div className="on-sale-wrap">
             <span className="on-sale-item">-{product.salePercentage}</span>
-          </div>
-        )}
-        {product.sizes && (
-          <div className="variant-wrap size-list">
-            <ul className="variant-box">
-              {product.sizes.map((size) => (
-                <li key={size} className="size-item">
-                  {size}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {product.countdown && (
-          <div className="variant-wrap countdown-wrap">
-            <div className="variant-box">
-              <div
-                className="js-countdown"
-                data-timer={product.countdown}
-                data-labels="D :,H :,M :,S"
-              >
-                <CountdownTimer />
-              </div>
-            </div>
           </div>
         )}
         <div className="list-product-btn">

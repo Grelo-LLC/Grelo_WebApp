@@ -1,9 +1,10 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import CountdownTimer from "../common/Countdown";
 import { useContextElement } from "@/context/Context";
+
 const discounts = [
   {
     discount: "10% OFF",
@@ -21,6 +22,7 @@ const discounts = [
     code: "Mo234231",
   },
 ];
+
 const shippingOptions = [
   {
     id: "free",
@@ -79,20 +81,6 @@ export default function ShopCart() {
                     width={48}
                     height={49}
                   />
-                  <div className="count-text">
-                    Your cart will expire in
-                    <div
-                      className="js-countdown time-count"
-                      data-timer={600}
-                      data-labels=":,:,:,"
-                    >
-                      <CountdownTimer
-                        style={4}
-                        targetDate={new Date(new Date().getTime() - 30 * 60000)}
-                      />
-                    </div>
-                    minutes! Please checkout now before your items sell out!
-                  </div>
                 </div>
                 <div className="notification-progress">
                   <div className="text">
@@ -329,7 +317,7 @@ export default function ShopCart() {
                       />
                       <label htmlFor="check-agree">
                         I agree with the
-                        <Link href={`/term-of-use`}>terms and conditions</Link>
+                        <Link href={`/page/term-of-use`}>terms and conditions</Link>
                       </label>
                     </fieldset>
                     <Link href={`/checkout`} className="tf-btn btn-reset">

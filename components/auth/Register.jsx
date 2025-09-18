@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import AuthImg from "./AuthImg";
 import PersonalForm from "./PersonalForm";
 import BusinessForm from "./BusinessForm";
-import Link from "next/link";
 
 export default function Register() {
     const [isMobile, setIsMobile] = useState(false);

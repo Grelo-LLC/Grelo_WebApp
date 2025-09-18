@@ -1,7 +1,6 @@
 import Footer from "@/components/footers/Footer";
 import Header from "@/components/headers/Header";
 import Topbar from "@/components/headers/Topbar";
-import RecentProducts from "@/components/otherPages/RecentProducts";
 import ShopCart from "@/components/otherPages/ShopCart";
 import Link from "next/link";
 import React from "react";
@@ -45,7 +44,6 @@ export default function ShopingCartPage() {
       </div>
 
       <ShopCart />
-      <RecentProducts />
       <Footer dark />
     </>
   );

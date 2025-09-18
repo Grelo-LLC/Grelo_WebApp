@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
+
 export default function OrderDetails() {
   const [activeTab, setActiveTab] = useState(1);
   return (

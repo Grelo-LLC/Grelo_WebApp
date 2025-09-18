@@ -1,4 +1,3 @@
-import Brands from "@/components/common/Brands";
 import Features from "@/components/common/Features";
 import Footer from "@/components/footers/Footer";
 import Header from "@/components/headers/Header";

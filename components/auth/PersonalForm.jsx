@@ -118,6 +118,7 @@ export default function PersonalForm() {
                     <small className="text-danger">{errors.confirmPassword}</small>
                 )}
             </fieldset>
+
             <div className="d-flex align-items-center justify-content-between mt-3">
                 <div className="tf-cart-checkbox">
                     <label htmlFor="login-form_agree"> Qeydiyyatdan keçmisiniz? </label>

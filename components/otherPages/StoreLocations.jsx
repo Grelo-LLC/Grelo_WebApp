@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function StoreLocations3() {
+export default function StoreLocations() {
   return (
     <section className="flat-spacing">
       <div className="container">

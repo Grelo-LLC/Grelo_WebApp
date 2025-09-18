@@ -1,10 +1,12 @@
 "use client";
+
 import { collectionItems4 } from "@/data/collections";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navigation } from "swiper/modules";
+
 export default function Categories({ parentClass = "flat-spacing pt-0" }) {
   return (
     <section className={parentClass}>

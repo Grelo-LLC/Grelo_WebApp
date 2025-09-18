@@ -1,4 +1,5 @@
 "use client";
+
 const filterOptions = [
   "Sort by (Default)",
   "Title Ascending",
@@ -6,6 +7,7 @@ const filterOptions = [
   "Price Ascending",
   "Price Descending",
 ];
+
 export default function Sorting({ allProps }) {
   return (
     <div className="tf-dropdown-sort" data-bs-toggle="dropdown">

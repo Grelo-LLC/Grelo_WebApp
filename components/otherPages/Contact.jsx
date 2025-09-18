@@ -1,7 +1,9 @@
 "use client";
+
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-export default function Contact3() {
+
+export default function Contact() {
   const formRef = useRef();
   const [success, setSuccess] = useState(true);
   const [showMessage, setShowMessage] = useState(false);

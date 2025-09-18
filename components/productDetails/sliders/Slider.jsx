@@ -4,7 +4,7 @@ import { slides } from "@/data/singleProductSliders";
 import Drift from "drift-zoom";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import { useEffect, useRef, useState } from "react";
-import { Navigation, Thumbs } from "swiper/modules";
+import { Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 

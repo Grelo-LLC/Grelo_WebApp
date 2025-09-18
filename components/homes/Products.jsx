@@ -1,6 +1,6 @@
 "use client";
 
-import ProductCard3 from "@/components/productCards/ProductCard3";
+import ProductCard from "@/components/productCards/ProductCard";
 import { products29 } from "@/data/products";
 import { useEffect, useState } from "react";
 
@@ -74,7 +74,7 @@ export default function Products() {
                     : {}
                 }
               >
-                <ProductCard3 product={product} />
+                <ProductCard product={product} />
               </div>
             ))
           ) : (

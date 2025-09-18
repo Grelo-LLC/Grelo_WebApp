@@ -1,7 +1,7 @@
 import Footer from "@/components/footers/Footer";
 import Topbar from "@/components/headers/Topbar";
-import Contact3 from "@/components/otherPages/Contact3";
-import StoreLocations3 from "@/components/otherPages/StoreLocations3";
+import Contact from "@/components/otherPages/Contact";
+import StoreLocations from "@/components/otherPages/StoreLocations";
 import React from "react";
 import Link from "next/link";
 import Header from "@/components/headers/Header";
@@ -39,8 +39,8 @@ export default function ContactPage2() {
           </div>
         </div>
       </div>
-      <StoreLocations3 />
-      <Contact3 />
+      <StoreLocations />
+      <Contact />
       <Footer dark />
     </>
   );

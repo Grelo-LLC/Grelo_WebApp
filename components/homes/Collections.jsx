@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Pagination } from "swiper/modules";
+
 export default function Collections() {
   return (
     <section className="flat-spacing pt-0">

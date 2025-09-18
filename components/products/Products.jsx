@@ -2,21 +2,17 @@
 
 import LayoutHandler from "./LayoutHandler";
 import Sorting from "./Sorting";
-import Listview from "./Listview";
 import GridView from "./GridView";
 import { useEffect, useReducer, useState } from "react";
 import FilterModal from "./FilterModal";
 import { initialState, reducer } from "@/reducer/filterReducer";
-import { productMain } from "@/data/products";
+import { products29 } from "@/data/products";
 import FilterMeta from "./FilterMeta";
+import FilterSidebar from "./FilterSidebar";
 
-export default function Products14({ parentClass = "flat-spacing" }) {
+export default function Products() {
   const [activeLayout, setActiveLayout] = useState(4);
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [loading, setLoading] = useState(false);
-
-  const [loadedItems, setLoadedItems] = useState([]);
-
   const {
     price,
     availability,
@@ -29,8 +25,6 @@ export default function Products14({ parentClass = "flat-spacing" }) {
     sorted,
 
     activeFilterOnSale,
-    currentPage,
-    itemPerPage,
   } = state;
 
   const allProps = {
@@ -77,44 +71,45 @@ export default function Products14({ parentClass = "flat-spacing" }) {
       dispatch({ type: "CLEAR_FILTER" });
     },
   };
+
   useEffect(() => {
     let filteredArrays = [];
 
     if (brands.length) {
-      const filteredByBrands = [...productMain].filter((elm) =>
-        brands.every((el) => elm.filterBrands.includes(el))
+      const filteredByBrands = [...products29].filter((elm) =>
+        brands.every((el) => (elm.filterBrands || []).includes(el))
       );
       filteredArrays = [...filteredArrays, filteredByBrands];
     }
     if (availability !== "All") {
-      const filteredByavailability = [...productMain].filter(
+      const filteredByavailability = [...products29].filter(
         (elm) => availability.value === elm.inStock
       );
       filteredArrays = [...filteredArrays, filteredByavailability];
     }
     if (color !== "All") {
-      const filteredByColor = [...productMain].filter((elm) =>
+      const filteredByColor = [...products29].filter((elm) =>
         elm.filterColor.includes(color.name)
       );
       filteredArrays = [...filteredArrays, filteredByColor];
     }
     if (size !== "All" && size !== "Free Size") {
-      const filteredBysize = [...productMain].filter((elm) =>
+      const filteredBysize = [...products29].filter((elm) =>
         elm.filterSizes.includes(size)
       );
       filteredArrays = [...filteredArrays, filteredBysize];
     }
     if (activeFilterOnSale) {
-      const filteredByonSale = [...productMain].filter((elm) => elm.oldPrice);
+      const filteredByonSale = [...products29].filter((elm) => elm.oldPrice);
       filteredArrays = [...filteredArrays, filteredByonSale];
     }
 
-    const filteredByPrice = [...productMain].filter(
+    const filteredByPrice = [...products29].filter(
       (elm) => elm.price >= price[0] && elm.price <= price[1]
     );
     filteredArrays = [...filteredArrays, filteredByPrice];
 
-    const commonItems = [...productMain].filter((item) =>
+    const commonItems = [...products29].filter((item) =>
       filteredArrays.every((array) => array.includes(item))
     );
     dispatch({ type: "SET_FILTERED", payload: commonItems });
@@ -146,50 +141,31 @@ export default function Products14({ parentClass = "flat-spacing" }) {
     }
     dispatch({ type: "SET_CURRENT_PAGE", payload: 1 });
   }, [filtered, sortingOption]);
-
-  useEffect(() => {
-    setLoadedItems(sorted.slice(0, 8));
-  }, [sorted]);
-
-  const handleLoad = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoadedItems((pre) => [
-        ...pre,
-        ...sorted.slice(pre.length, pre.length + 4),
-      ]);
-      setLoading(false);
-    }, 1000);
-  };
   return (
     <>
-      <section className={parentClass}>
+      <section className="flat-spacing">
         <div className="container">
           <div className="tf-shop-control">
             <div className="tf-control-filter">
+              <button className="filterShop tf-btn-filter hidden-mx-1200">
+                <span className="icon icon-filter" />
+                <span className="text">Filters</span>
+              </button>
               <a
                 href="#filterShop"
                 data-bs-toggle="offcanvas"
                 aria-controls="filterShop"
-                className="tf-btn-filter"
+                className="tf-btn-filter show-mx-1200"
               >
                 <span className="icon icon-filter" />
                 <span className="text">Filters</span>
               </a>
-              <div
-                onClick={allProps.toggleFilterWithOnSale}
-                className={`d-none d-lg-flex shop-sale-text ${
-                  activeFilterOnSale ? "active" : ""
-                }`}
-              >
-                <i className="icon icon-checkCircle" />
-                <p className="text-caption-1">Shop sale items only</p>
-              </div>
             </div>
             <ul className="tf-control-layout">
               <LayoutHandler
                 setActiveLayout={setActiveLayout}
                 activeLayout={activeLayout}
+                hasSidebar
               />
             </ul>
             <div className="tf-control-sorting">
@@ -199,50 +175,22 @@ export default function Products14({ parentClass = "flat-spacing" }) {
           </div>
           <div className="wrapper-control-shop">
             <FilterMeta productLength={sorted.length} allProps={allProps} />
-
-            {activeLayout == 1 ? (
-              <div className="tf-list-layout wrapper-shop" id="listLayout">
-                <Listview pagination={false} products={loadedItems} />
-                {sorted.length == loadedItems.length ? (
-                  ""
-                ) : (
-                  <button
-                    className={`load-more-btn btn-out-line tf-loading ${
-                      loading ? "loading" : ""
-                    } `}
-                  >
-                    <span className="text-btn">Load more</span>
-                  </button>
-                )}
+            <div className="row">
+              <div className="col-xl-3">
+                <FilterSidebar allProps={allProps} />
               </div>
-            ) : (
-              <div
-                className={`tf-grid-layout wrapper-shop tf-col-${activeLayout}`}
-                id="gridLayout"
-              >
-                <GridView pagination={false} products={loadedItems} />
-                {sorted.length == loadedItems.length ? (
-                  ""
-                ) : (
-                  <div
-                    className="wd-load d-flex justify-content-center"
-                    onClick={() => handleLoad()}
-                  >
-                    <button
-                      className={`load-more-btn btn-out-line tf-loading ${
-                        loading ? "loading" : ""
-                      } `}
-                    >
-                      <span className="text-btn">Load more</span>
-                    </button>
-                  </div>
-                )}
+              <div className="col-xl-9">
+                <div
+                  className={`tf-grid-layout wrapper-shop tf-col-${activeLayout}`}
+                  id="gridLayout"
+                >
+                  <GridView products={sorted} />
+                </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
-      </section>
-
+      </section>{" "}
       <FilterModal allProps={allProps} />
     </>
   );

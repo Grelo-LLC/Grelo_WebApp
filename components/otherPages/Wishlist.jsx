@@ -2,7 +2,7 @@
 
 import { useContextElement } from "@/context/Context";
 import { useEffect, useState } from "react";
-import ProductCard1 from "../productCards/ProductCard1";
+import ProductCard from "../productCards/ProductCard";
 import Pagination from "../common/Pagination";
 import Link from "next/link";
 import { allProducts } from "@/data/products";
@@ -19,7 +19,7 @@ export default function Wishlist() {
         {items.length ? (
           <div className="tf-grid-layout tf-col-2 md-col-3 xl-col-4">
             {items.map((product, i) => (
-              <ProductCard1 key={i} product={product} />
+              <ProductCard key={i} product={product} />
             ))}
 
             <ul className="wg-pagination justify-content-center">

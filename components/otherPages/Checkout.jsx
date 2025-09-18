@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 const discounts = [
   {
     discount: "10% OFF",
@@ -22,6 +23,7 @@ const discounts = [
     code: "Mo234231",
   },
 ];
+
 export default function Checkout() {
   const [activeDiscountIndex, setActiveDiscountIndex] = useState(1);
   const { cartProducts, totalPrice } = useContextElement();
