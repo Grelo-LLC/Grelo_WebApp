@@ -27,7 +27,7 @@ export default function SetNewPass() {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-        setErrors({ ...errors, [e.target.name]: "" }); // yazılan anda erroru təmizlə
+        setErrors({ ...errors, [e.target.name]: "" });
     };
 
     const handleSubmit = (e) => {

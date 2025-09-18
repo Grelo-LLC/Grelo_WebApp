@@ -2,7 +2,7 @@ export const slides = [
   {
     id: 1,
     color: "gray",
-    src: "/images/products/womens/women-3.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -10,7 +10,7 @@ export const slides = [
   {
     id: 2,
     color: "gray",
-    src: "/images/products/womens/women-1.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -18,7 +18,7 @@ export const slides = [
   {
     id: 3,
     color: "gray",
-    src: "/images/products/womens/women-2.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -26,7 +26,7 @@ export const slides = [
   {
     id: 4,
     color: "gray",
-    src: "/images/products/womens/women-5.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -34,7 +34,7 @@ export const slides = [
   {
     id: 5,
     color: "beige",
-    src: "/images/products/womens/women-6.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -42,7 +42,7 @@ export const slides = [
   {
     id: 6,
     color: "beige",
-    src: "/images/products/womens/women-7.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -50,7 +50,7 @@ export const slides = [
   {
     id: 7,
     color: "beige",
-    src: "/images/products/womens/women-7.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -58,7 +58,7 @@ export const slides = [
   {
     id: 8,
     color: "grey",
-    src: "/images/products/womens/women-23.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,
@@ -66,7 +66,7 @@ export const slides = [
   {
     id: 9,
     color: "grey",
-    src: "/images/products/womens/women-24.jpg",
+    src: "/images/products/women-19.jpg",
     alt: "",
     width: 600,
     height: 800,

@@ -13,7 +13,7 @@ export default function OrderDetails() {
             <figure className="img-product">
               <Image
                 alt="product"
-                src="/images/products/womens/women-1.jpg"
+                src="/images/products/women-19.jpg"
                 width={600}
                 height={800}
               />
@@ -74,9 +74,8 @@ export default function OrderDetails() {
             </ul>
             <div className="widget-content-tab">
               <div
-                className={`widget-content-inner ${
-                  activeTab == 1 ? "active" : ""
-                } `}
+                className={`widget-content-inner ${activeTab == 1 ? "active" : ""
+                  } `}
               >
                 <div className="widget-timeline">
                   <ul className="timeline">
@@ -133,15 +132,14 @@ export default function OrderDetails() {
                 </div>
               </div>
               <div
-                className={`widget-content-inner ${
-                  activeTab == 2 ? "active" : ""
-                } `}
+                className={`widget-content-inner ${activeTab == 2 ? "active" : ""
+                  } `}
               >
                 <div className="order-head">
                   <figure className="img-product">
                     <Image
                       alt="product"
-                      src="/images/products/womens/women-1.jpg"
+                      src="/images/products/women-19.jpg"
                       width={600}
                       height={800}
                     />
@@ -172,9 +170,8 @@ export default function OrderDetails() {
                 </ul>
               </div>
               <div
-                className={`widget-content-inner ${
-                  activeTab == 3 ? "active" : ""
-                } `}
+                className={`widget-content-inner ${activeTab == 3 ? "active" : ""
+                  } `}
               >
                 <p>
                   Our courier service is dedicated to providing fast, reliable,
@@ -189,9 +186,8 @@ export default function OrderDetails() {
                 </p>
               </div>
               <div
-                className={`widget-content-inner ${
-                  activeTab == 4 ? "active" : ""
-                } `}
+                className={`widget-content-inner ${activeTab == 4 ? "active" : ""
+                  } `}
               >
                 <p className="text-2 text-success">
                   Thank you Your order has been received

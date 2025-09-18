@@ -3,8 +3,8 @@ export const products = [
     id: 1,
     title: "V-neck cotton T-shirt",
     price: 59.99,
-    imgSrc: "/images/products/womens/women-19.jpg",
-    imgHover: "/images/products/womens/women-20.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     isOnisOnSale: false,
     filterBrands: ["Nike", "Louis Vuitton", "Zalando", "Adidas"],
     inStock: true,
@@ -19,17 +19,17 @@ export const products = [
     price: 79.99,
     oldPrice: 98.0,
     hotSale: true,
-    imgSrc: "/images/products/womens/women-176.jpg",
-    imgHover: "/images/products/womens/women-179.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     isOnisOnSale: true,
     colors: [
       {
         bgColor: "bg-light-blue",
-        imgSrc: "/images/products/womens/women-176.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-light-blue-2",
-        imgSrc: "/images/products/womens/women-177.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
     ],
     filterBrands: ["Nike", "Zalando", "Adidas"],
@@ -44,19 +44,19 @@ export const products = [
     title: "Ramie shirt with pockets",
     price: 89.99,
     oldPrice: 98.0,
-    imgSrc: "/images/products/womens/women-29.jpg",
-    imgHover: "/images/products/womens/women-30.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     addToCart: "Quick Add",
     sizes: ["S", "M", "L", "XL"],
     countdown: 1007500,
     colors: [
       {
         bgColor: "bg-light-orange",
-        imgSrc: "/images/products/womens/women-29.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-light-grey",
-        imgSrc: "/images/products/womens/women-33.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
     ],
     filterBrands: ["Hermes", "Gucci", "Zalando", "Adidas"],
@@ -79,20 +79,20 @@ export const products = [
     id: 4,
     title: "Ribbed cotton-blend top",
     price: 69.99,
-    imgSrc: "/images/products/womens/women-1.jpg",
-    imgHover: "/images/products/womens/women-2.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     colors: [
       {
         bgColor: "bg-dark-grey",
-        imgSrc: "/images/products/womens/women-1.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-light-pink",
-        imgSrc: "/images/products/womens/women-2.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-dark-grey-2",
-        imgSrc: "/images/products/womens/women-3.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
     ],
     filterBrands: ["Nike", "Louis Vuitton", "Hermes", "Gucci"],
@@ -115,8 +115,8 @@ export const products = [
   },
   {
     id: 5,
-    imgSrc: "/images/products/womens/women-8.jpg",
-    imgHover: "/images/products/womens/women-9.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "Ribbed cotton-blend top",
     price: 39.99,
     sizes: ["S", "M", "L", "XL"],
@@ -130,19 +130,19 @@ export const products = [
   },
   {
     id: 6,
-    imgSrc: "/images/products/womens/women-171.jpg",
-    imgHover: "/images/products/womens/women-172.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "Faux-leather trousers",
     price: 79.99,
     sizes: ["S", "M", "L", "XL"],
     colors: [
       {
         bgColor: "bg-orange",
-        imgSrc: "/images/products/womens/women-171.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-dark-pink",
-        imgSrc: "/images/products/womens/women-172.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
     ],
     isOnSale: false,
@@ -167,8 +167,8 @@ export const products = [
   },
   {
     id: 7,
-    imgSrc: "/images/products/womens/women-83.jpg",
-    imgHover: "/images/products/womens/women-84.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "Belt wrap dress",
     price: 129.99,
     oldPrice: 98.0,
@@ -177,15 +177,15 @@ export const products = [
     colors: [
       {
         bgColor: "bg-light-green",
-        imgSrc: "/images/products/womens/women-83.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-grey",
-        imgSrc: "/images/products/womens/women-94.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-white",
-        imgSrc: "/images/products/womens/women-87.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
     ],
     filterBrands: ["Nike", "Louis Vuitton", "Zalando", "Adidas"],
@@ -213,8 +213,8 @@ export const products = [
   },
   {
     id: 8,
-    imgSrc: "/images/products/womens/women-102.jpg",
-    imgHover: "/images/products/womens/women-103.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "Double-button trench coat",
     price: 219.99,
     oldPrice: 98.0,
@@ -223,15 +223,15 @@ export const products = [
     colors: [
       {
         bgColor: "bg-grey-2",
-        imgSrc: "/images/products/womens/women-102.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-light-orange",
-        imgSrc: "/images/products/womens/women-111.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
       {
         bgColor: "bg-white",
-        imgSrc: "/images/products/womens/women-104.jpg",
+        imgSrc: "/images/products/women-19.jpg",
       },
     ],
     filterBrands: ["Nike", "Hermes", "Gucci", "Zalando", "Adidas"],
@@ -264,8 +264,8 @@ export const products = [
 export const products29 = [
   {
     id: 166,
-    imgSrc: "/images/products/electronic/electronic-1.jpg",
-    imgHover: "/images/products/electronic/electronic-2.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "PlayStation DualSense Wireless Controller",
     price: 59.99,
     rating: 5,
@@ -276,8 +276,8 @@ export const products29 = [
   },
   {
     id: 167,
-    imgSrc: "/images/products/electronic/electronic-3.jpg",
-    imgHover: "/images/products/electronic/electronic-4.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "Apple Watch Ultra 2- Rugged Titanium Case",
     price: 79.99,
     oldPrice: 98.0,
@@ -290,8 +290,8 @@ export const products29 = [
   },
   {
     id: 168,
-    imgSrc: "/images/products/electronic/electronic-5.jpg",
-    imgHover: "/images/products/electronic/electronic-6.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "JBL Tune 750BTNC for Android Tablet",
     price: 89.99,
     oldPrice: 98.0,
@@ -303,8 +303,8 @@ export const products29 = [
   },
   {
     id: 169,
-    imgSrc: "/images/products/electronic/electronic-7.jpg",
-    imgHover: "/images/products/electronic/electronic-8.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "Samsung Galaxy Buds",
     price: 199.99,
     rating: 4,
@@ -315,8 +315,8 @@ export const products29 = [
   },
   {
     id: 170,
-    imgSrc: "/images/products/electronic/electronic-9.jpg",
-    imgHover: "/images/products/electronic/electronic-10.jpg",
+    imgSrc: "/images/products/women-19.jpg",
+    imgHover: "/images/products/women-19.jpg",
     title: "Sony WH-1000XM4 Wireless Headphones",
     price: 350.0,
     rating: 5,

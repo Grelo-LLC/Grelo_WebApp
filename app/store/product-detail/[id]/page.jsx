@@ -9,23 +9,23 @@ import { allProducts } from "@/data/products";
 import React from "react";
 
 export const metadata = {
-  title: "Məhsul Detalı - Grelo.Az",
-  description: "Grelo Agro Saytıdır",
+    title: "Məhsul Detalı - Grelo.Az",
+    description: "Grelo Agro Saytıdır",
 };
 
 export default async function ProductDetailPage({ params }) {
-  const { id } = await params;
+    const { id } = await params;
 
-  const product = allProducts.filter((p) => p.id == id)[0] || allProducts[0];
-  return (
-    <>
-      <Topbar />
-      <Header />
-      <Breadcumb product={product} />
-      <Details product={product} />
-      <Info />
-      <RelatedProducts />
-      <Footer dark />
-    </>
-  );
+    const product = allProducts.filter((p) => p.id == id)[0] || allProducts[0];
+    return (
+        <>
+            <Topbar />
+            <Header />
+            <Breadcumb product={product} />
+            <Details product={product} />
+            <Info />
+            <RelatedProducts />
+            <Footer dark />
+        </>
+    );
 }

@@ -8,20 +8,20 @@ import Products from "@/components/homes/Products";
 import React from "react";
 
 export const metadata = {
-  title: "Ana Səhifə - Grelo.Az",
-  description: "Grelo Agro Saytıdır",
+    title: "Ana Səhifə - Grelo.Az",
+    description: "Grelo Agro Saytıdır",
 };
 
 export default function HomeElectronicPage() {
-  return (
-    <>
-      <Topbar />
-      <Header />
-      <Hero />
-      <Categories />
-      <Products />
-      <Features parentClass="flat-spacing-4 line-top-container" />
-      <Footer dark />
-    </>
-  );
+    return (
+        <>
+            <Topbar />
+            <Header />
+            <Hero />
+            <Categories />
+            <Products />
+            <Features parentClass="flat-spacing-4 line-top-container" />
+            <Footer dark />
+        </>
+    );
 }
