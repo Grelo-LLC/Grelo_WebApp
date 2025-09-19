@@ -1,6 +1,3 @@
-import Footer from "@/components/footers/Footer";
-import Header from "@/components/headers/Header";
-import Topbar from "@/components/headers/Topbar";
 import AccountSidebar from "@/components/my-account/AccountSidebar";
 import Information from "@/components/my-account/Information";
 import Link from "next/link";
@@ -14,13 +11,8 @@ export const metadata = {
 export default function MyAccountPage() {
     return (
         <>
-            <Topbar />
-            <Header />
             <>
-                <div
-                    className="page-title"
-                    style={{ backgroundImage: "url(/images/section/page-title.jpg)" }}
-                >
+                <div className="page-title">
                     <div className="container-full">
                         <div className="row">
                             <div className="col-12">
@@ -55,7 +47,6 @@ export default function MyAccountPage() {
                     </div>
                 </div>
             </section>
-            <Footer dark />
         </>
     );
 }

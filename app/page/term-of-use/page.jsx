@@ -1,6 +1,3 @@
-import Footer from "@/components/footers/Footer";
-import Header from "@/components/headers/Header";
-import Topbar from "@/components/headers/Topbar";
 import Terms from "@/components/otherPages/Terms";
 import React from "react";
 import Link from "next/link";
@@ -13,33 +10,28 @@ export const metadata = {
 export default function TermsOfUsePage() {
     return (
         <>
-            <Topbar />
-            <Header />
-            <div
-                className="page-title"
-                style={{ backgroundImage: "url(/images/section/page-title.jpg)" }}
-            >
+            <div className="page-title">
                 <div className="container-full">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="heading text-center">Terms of use</h3>
+                            <h3 className="heading text-center">İstifadə qaydaları</h3>
                             <ul className="breadcrumbs d-flex align-items-center justify-content-center">
                                 <li>
                                     <Link className="link" href={`/`}>
-                                        Homepage
+                                        Ana Səhifə
                                     </Link>
                                 </li>
                                 <li>
                                     <i className="icon-arrRight" />
                                 </li>
-                                <li>Terms of use</li>
+                                <li>İstifadə qaydaları</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+
             <Terms />
-            <Footer dark />
         </>
     );
 }

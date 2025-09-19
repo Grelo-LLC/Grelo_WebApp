@@ -1,116 +1,74 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { ENDPOINTS } from "@/config/endpoints";
+import { REQUEST } from "@/config/config";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Faqs() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await REQUEST.get(ENDPOINTS.FAQS());
+                const sortedData = response.results
+                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+                    .slice(0, 10);
+                setData(sortedData);
+            } catch (error) {
+                console.error("Error fetching faqs data:", error);
+            }
+        };
+        getData();
+    }, []);
+
+    const skeletonArray = Array.from({ length: 10 });
+
     return (
         <section className="flat-spacing">
             <div className="container">
-                <div className="page-faqs-wrap">
+                <div className="page-faqs-wrap wow fadeInRight">
                     <div className="list-faqs">
-                        <div>
-                            <ul
-                                className="accordion-product-wrap style-faqs"
-                                id="accordion-faq-1"
-                            >
-                                <li className="accordion-product-item">
-                                    <a
-                                        href="#accordion-1"
-                                        className="accordion-title collapsed current"
-                                        data-bs-toggle="collapse"
-                                        aria-expanded="true"
-                                        aria-controls="accordion-1"
-                                    >
-                                        <h6>
-                                            How does COVID-19 affect my online orders and store
-                                            purchases?
-                                        </h6>
-                                        <span className="btn-open-sub" />
-                                    </a>
-                                    <div
-                                        id="accordion-1"
-                                        className="collapse show"
-                                        data-bs-parent="#accordion-faq-1"
-                                    >
-                                        <div className="accordion-faqs-content">
-                                            <p className="text-secondary">
-                                                The courier companies have adapted their procedures to
-                                                guarantee the safety of our employees and our community.
-                                                We thank you for your patience, as there may be some
-                                                delays to deliveries. We remind you that you can still
-                                                find us at Mango.com and on all our online channels. Our
-                                                customer services are still there for you, to answer any
-                                                questions you may have, although due to the current
-                                                situation, we are operating with longer waiting times.
-                                            </p>
+                        <ul
+                            className="accordion-product-wrap style-faqs"
+                            id="accordion-faq-1"
+                        >
+                            {data.length > 0
+                                ? data.map((faq, index) => (
+                                    <li key={faq.id} className="accordion-product-item">
+                                        <a
+                                            href={`#accordion-${faq.id}`}
+                                            className={`accordion-title ${index === 0 ? "current" : "collapsed"}`}
+                                            data-bs-toggle="collapse"
+                                            aria-expanded={index === 0 ? "true" : "false"}
+                                            aria-controls={`accordion-${faq.id}`}
+                                        >
+                                            <h6>{faq.question}</h6>
+                                            <span className="btn-open-sub" />
+                                        </a>
+                                        <div
+                                            id={`accordion-${faq.id}`}
+                                            className={`collapse ${index === 0 ? "show" : ""}`}
+                                            data-bs-parent="#accordion-faq-1"
+                                        >
+                                            <div className="accordion-faqs-content">
+                                                <p className="text-secondary">{faq.answer}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li className="accordion-product-item">
-                                    <a
-                                        href="#accordion-2"
-                                        className="accordion-title current"
-                                        data-bs-toggle="collapse"
-                                        aria-expanded="true"
-                                        aria-controls="accordion-2"
-                                    >
-                                        <h6>
-                                            I have a promotional or discount code. How do I use it for
-                                            an online purchase?
-                                        </h6>
-                                        <span className="btn-open-sub" />
-                                    </a>
-                                    <div
-                                        id="accordion-2"
-                                        className="collapse"
-                                        data-bs-parent="#accordion-faq-1"
-                                    >
+                                    </li>
+                                ))
+                                : skeletonArray.map((_, index) => (
+                                    <li key={index} className="accordion-product-item">
+                                        <h6><Skeleton width={300} /></h6>
                                         <div className="accordion-faqs-content">
-                                            <p className="text-secondary">
-                                                The courier companies have adapted their procedures to
-                                                guarantee the safety of our employees and our community.
-                                                We thank you for your patience, as there may be some
-                                                delays to deliveries. We remind you that you can still
-                                                find us at Mango.com and on all our online channels. Our
-                                                customer services are still there for you, to answer any
-                                                questions you may have, although due to the current
-                                                situation, we are operating with longer waiting times.
-                                            </p>
+                                            <p><Skeleton count={2} /></p>
                                         </div>
-                                    </div>
-                                </li>
-                                <li className="accordion-product-item">
-                                    <a
-                                        href="#accordion-3"
-                                        className="accordion-title collapsed current"
-                                        data-bs-toggle="collapse"
-                                        aria-expanded="true"
-                                        aria-controls="accordion-3"
-                                    >
-                                        <h6>NEW! Plus sizes for Woman</h6>
-                                        <span className="btn-open-sub" />
-                                    </a>
-                                    <div
-                                        id="accordion-3"
-                                        className="collapse"
-                                        data-bs-parent="#accordion-faq-1"
-                                    >
-                                        <div className="accordion-faqs-content">
-                                            <p className="text-secondary">
-                                                The courier companies have adapted their procedures to
-                                                guarantee the safety of our employees and our community.
-                                                We thank you for your patience, as there may be some
-                                                delays to deliveries. We remind you that you can still
-                                                find us at Mango.com and on all our online channels. Our
-                                                customer services are still there for you, to answer any
-                                                questions you may have, although due to the current
-                                                situation, we are operating with longer waiting times.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                    </li>
+                                ))
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>

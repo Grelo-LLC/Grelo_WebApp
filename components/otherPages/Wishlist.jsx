@@ -8,34 +8,36 @@ import Link from "next/link";
 import { allProducts } from "@/data/products";
 
 export default function Wishlist() {
-  const { removeFromWishlist, wishList } = useContextElement();
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    setItems([...allProducts.filter((elm) => wishList.includes(elm.id))]);
-  }, [wishList]);
-  return (
-    <section className="flat-spacing">
-      <div className="container">
-        {items.length ? (
-          <div className="tf-grid-layout tf-col-2 md-col-3 xl-col-4">
-            {items.map((product, i) => (
-              <ProductCard key={i} product={product} />
-            ))}
+    const { removeFromWishlist, wishList } = useContextElement();
+    const [items, setItems] = useState([]);
 
-            <ul className="wg-pagination justify-content-center">
-              <Pagination />
-            </ul>
-          </div>
-        ) : (
-          <div className="p-5">
-            Your wishlist is empty. Start adding your favorite products to save
-            them for later!{" "}
-            <Link className="btn-line" href="/shop-default-grid">
-              Explore Products
-            </Link>
-          </div>
-        )}
-      </div>
-    </section>
-  );
+    useEffect(() => {
+        setItems([...allProducts.filter((elm) => wishList.includes(elm.id))]);
+    }, [wishList]);
+
+    return (
+        <section className="flat-spacing">
+            <div className="container">
+                {items.length ? (
+                    <div className="tf-grid-layout tf-col-2 md-col-3 xl-col-4">
+                        {items.map((product, i) => (
+                            <ProductCard key={i} product={product} />
+                        ))}
+
+                        <ul className="wg-pagination justify-content-center">
+                            <Pagination />
+                        </ul>
+                    </div>
+                ) : (
+                    <div className="p-5">
+                        Your wishlist is empty. Start adding your favorite products to save
+                        them for later!{" "}
+                        <Link className="btn-line" href="/shop-default-grid">
+                            Explore Products
+                        </Link>
+                    </div>
+                )}
+            </div>
+        </section>
+    );
 }

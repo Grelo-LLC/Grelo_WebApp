@@ -1,47 +1,57 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { ENDPOINTS } from "@/config/endpoints";
+import { REQUEST } from "@/config/config";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function About() {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const response = await REQUEST.get(ENDPOINTS.ABOUT());
+                setData(response);
+            } catch (error) {
+                console.error("Error fetching about data:", error);
+            }
+        };
+        getData();
+    }, []);
+
     return (
         <section className="flat-spacing about-us-main pb_0">
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
                         <div className="about-us-features wow fadeInLeft">
-                            <Image
-                                className="lazyload"
-                                data-src="/images/banner/about-us.jpg"
-                                alt="image-team"
-                                src="/images/banner/about-us.jpg"
-                                width={930}
-                                height={618}
-                            />
+                            {data ? (
+                                <Image
+                                    src={data.image}
+                                    alt="about-image"
+                                    width={930}
+                                    height={618}
+                                    priority
+                                />
+                            ) : (
+                                <Skeleton height={618} width={930} />
+                            )}
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="about-us-content">
                             <h3 className="title wow fadeInUp">
-                                Modave – Offering rare and beautiful items worldwide
+                                {data ? data.title : <Skeleton width={200} />}
                             </h3>
                             <p>
-                                Welcome to Modave Store, your premier destination for
-                                fashion-forward clothing and accessories. We pride
-                                ourselves on offering a curated selection of rare and
-                                beautiful items sourced both locally and globally. Our
-                                mission is to bring you the latest trends and timeless
-                                styles, ensuring every piece reflects quality and
-                                elegance. Discover the perfect addition to your wardrobe
-                                at Modave Store.
-                                Welcome to Modave Store, your premier destination for
-                                fashion-forward clothing and accessories. We pride
-                                ourselves on offering a curated selection of rare and
-                                beautiful items sourced both locally and globally. Our
-                                mission is to bring you the latest trends and timeless
-                                styles, ensuring every piece reflects quality and
-                                elegance. Discover the perfect addition to your wardrobe
-                                at Modave Store.
+                                {data ? (
+                                    data.description
+                                ) : (
+                                    <Skeleton count={4} />
+                                )}
                             </p>
                         </div>
                     </div>

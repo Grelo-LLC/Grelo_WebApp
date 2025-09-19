@@ -8,10 +8,16 @@ import "../public/css/image-compare-viewer.min.css";
 import { useEffect, useState } from "react";
 import Context from "@/context/Context";
 import MobileMenu from "@/components/modals/MobileMenu";
+import { GreloProvider } from "@/context/GreloContext";
+import Topbar from "@/components/headers/Topbar";
+import Header from "@/components/headers/Header";
+import Footer from "@/components/footers/Footer";
 
 export default function RootLayout({ children }) {
     const pathname = usePathname();
     const [scrollDirection, setScrollDirection] = useState("down");
+
+    const hideLayout = ["/auth/register", "/auth/login", "/auth/forget-password", "/auth/otp", "/auth/set-new-password"].includes(pathname);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -23,37 +29,26 @@ export default function RootLayout({ children }) {
         const handleScroll = () => {
             const header = document.querySelector("header");
             if (!header) return;
-
             if (window.scrollY > 100) {
                 header.classList.add("header-bg");
             } else {
                 header.classList.remove("header-bg");
             }
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     useEffect(() => {
         const lastScrollY = { current: window.scrollY };
-
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-
             if (currentScrollY > 250) {
-                if (currentScrollY > lastScrollY.current) {
-                    setScrollDirection("down");
-                } else {
-                    setScrollDirection("up");
-                }
-            } else {
-                setScrollDirection("down");
-            }
-
+                if (currentScrollY > lastScrollY.current) setScrollDirection("down");
+                else setScrollDirection("up");
+            } else setScrollDirection("down");
             lastScrollY.current = currentScrollY;
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [pathname]);
@@ -76,32 +71,27 @@ export default function RootLayout({ children }) {
     useEffect(() => {
         const header = document.querySelector("header");
         if (!header) return;
-
-        if (scrollDirection === "up") {
-            header.style.top = "0px";
-        } else {
-            header.style.top = "-185px";
-        }
+        header.style.top = scrollDirection === "up" ? "0px" : "-185px";
     }, [scrollDirection]);
 
     useEffect(() => {
         const WOW = require("@/utlis/wow");
-        const wow = new WOW.default({
-            mobile: false,
-            live: false,
-        });
+        const wow = new WOW.default({ mobile: false, live: false });
         wow.init();
     }, [pathname]);
 
     return (
-        <html lang="en">
+        <html lang="az">
             <body className="preload-wrapper popup-loader" cz-shortcut-listen="true">
-                <Context>
-                    <div id="wrapper">
-                        {children}
-                    </div>
-                    <MobileMenu />
-                </Context>
+                <GreloProvider>
+                    {!hideLayout && <Topbar />}
+                    <Context>
+                        {!hideLayout && <Header />}
+                        <div id="wrapper">{children}</div>
+                        <MobileMenu />
+                    </Context>
+                    {!hideLayout && <Footer dark />}
+                </GreloProvider>
             </body>
         </html>
     );

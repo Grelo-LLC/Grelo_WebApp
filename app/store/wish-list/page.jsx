@@ -1,6 +1,3 @@
-import Footer from "@/components/footers/Footer";
-import Header from "@/components/headers/Header";
-import Topbar from "@/components/headers/Topbar";
 import Wishlist from "@/components/otherPages/Wishlist";
 import Link from "next/link";
 import React from "react";
@@ -13,12 +10,7 @@ export const metadata = {
 export default function WishListPage() {
     return (
         <>
-            <Topbar />
-            <Header />
-            <div
-                className="page-title"
-                style={{ backgroundImage: "url(/images/section/page-title.jpg)" }}
-            >
+            <div className="page-title">
                 <div className="container">
                     <h3 className="heading text-center">Your Wishlist</h3>
                     <ul className="breadcrumbs d-flex align-items-center justify-content-center">
@@ -45,7 +37,6 @@ export default function WishListPage() {
 
             <Wishlist />
 
-            <Footer dark />
         </>
     );
 }
