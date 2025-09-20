@@ -2,6 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { REQUEST } from "@/config/config";
+import { ENDPOINTS } from "@/config/endpoints";
+
+const valid = [
+    "ən azı 1 rəqəm olmalıdır (0 - 9)",
+    "ən azı 1 kiçik hərf olmalıdır (a - z)",
+    "ən azı 1 böyük hərf olmalıdır (A - Z)",
+    "ən azı 8 simvol olmalıdır"
+]
 
 export default function PersonalForm() {
     const [passwordType, setPasswordType] = useState("password");
@@ -18,30 +29,83 @@ export default function PersonalForm() {
         );
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        const form = new FormData(e.target);
         let newErrors = {};
 
-        if (!formData.get("fullname")) {
+        if (!form.get("fullname")) {
             newErrors.fullname = "Ad və Soyad vacibdir!";
         }
-        if (!formData.get("email")) {
+        if (!form.get("email")) {
             newErrors.email = "Email vacibdir!";
         }
-        if (!formData.get("password")) {
+        if (!form.get("password")) {
             newErrors.password = "Şifrə vacibdir!";
         }
-        if (!formData.get("confirmPassword")) {
+        if (!form.get("confirmPassword")) {
             newErrors.confirmPassword = "Şifrəni təkrar daxil edin!";
-        } else if (formData.get("password") !== formData.get("confirmPassword")) {
+        } else if (form.get("password") !== form.get("confirmPassword")) {
             newErrors.confirmPassword = "Şifrələr uyğun gəlmir!";
         }
 
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            alert("Form uğurla göndərildi ✅");
+            const formData = {
+                user_type: "individual",
+                full_name: form.get("fullname"),
+                email: form.get("email"),
+                password: form.get("password"),
+                confirm_password: form.get("confirmPassword"),
+            };
+
+            try {
+                const response = await REQUEST.post(
+                    ENDPOINTS.REGISTER(),
+                    formData
+                );
+
+                toast.success("Qeydiyyat uğurla tamamlandı ✅", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    theme: "colored",
+                    transition: Bounce,
+                });
+
+                console.log("Success:", response.data);
+
+                e.target.reset();
+                setErrors({});
+            }
+            catch (error) {
+                const errorData = error.response?.data || {};
+
+                if (errorData.alert) {
+                    toast.error(errorData.alert, {
+                        position: "top-right",
+                        autoClose: 3000,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "colored",
+                        transition: Bounce,
+                    });
+                } else {
+                    toast.error("Qeydiyyat zamanı xəta baş verdi!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "colored",
+                        transition: Bounce,
+                    });
+                }
+            }
         }
     };
 
@@ -53,7 +117,10 @@ export default function PersonalForm() {
                     className="my-2 text-black"
                     placeholder="Ad və Soyad *"
                     name="fullname"
-                    style={{ backgroundColor: errors.fullname ? "#ffdddb" : "", border: errors.fullname ? "1px solid red" : "" }}
+                    style={{
+                        backgroundColor: errors.fullname ? "#ffdddb" : "",
+                        border: errors.fullname ? "1px solid red" : "",
+                    }}
                 />
                 {errors.fullname && (
                     <small className="text-danger">{errors.fullname}</small>
@@ -66,7 +133,10 @@ export default function PersonalForm() {
                     className="my-2"
                     placeholder="Email ünvanı *"
                     name="email"
-                    style={{ backgroundColor: errors.email ? "#ffdddb" : "", border: errors.email ? "1px solid red" : "" }}
+                    style={{
+                        backgroundColor: errors.email ? "#ffdddb" : "",
+                        border: errors.email ? "1px solid red" : "",
+                    }}
                 />
                 {errors.email && (
                     <small className="text-danger">{errors.email}</small>
@@ -79,7 +149,10 @@ export default function PersonalForm() {
                     type={passwordType}
                     placeholder="Şifrə *"
                     name="password"
-                    style={{ backgroundColor: errors.password ? "#ffdddb" : "", border: errors.password ? "1px solid red" : "" }}
+                    style={{
+                        backgroundColor: errors.password ? "#ffdddb" : "",
+                        border: errors.password ? "1px solid red" : "",
+                    }}
                 />
                 <span
                     className={`toggle-password ${!(passwordType === "text") ? "unshow" : ""
@@ -96,13 +169,32 @@ export default function PersonalForm() {
                 )}
             </fieldset>
 
+            <ul style={{ listStyleType: "disc", margin: "0 10px" }}>
+                {valid.map((item, index) => (
+                    <li
+                        key={index}
+                        className="fw-bolder"
+                        style={{ fontSize: "13px", listStyleType: "disc", margin: "0 10px" }}
+                    >
+                        {item}
+                    </li>
+                ))}
+            </ul>
+
             <fieldset className="position-relative password-item">
                 <input
                     className="my-2"
                     type={confirmPasswordType}
                     placeholder="Şifrəni təkrarla *"
                     name="confirmPassword"
-                    style={{ backgroundColor: errors.confirmPassword ? "#ffdddb" : "", border: errors.confirmPassword ? "1px solid red" : "" }}
+                    style={{
+                        backgroundColor: errors.confirmPassword
+                            ? "#ffdddb"
+                            : "",
+                        border: errors.confirmPassword
+                            ? "1px solid red"
+                            : "",
+                    }}
                 />
                 <span
                     className={`toggle-password ${!(confirmPasswordType === "text") ? "unshow" : ""
@@ -115,13 +207,18 @@ export default function PersonalForm() {
                     />
                 </span>
                 {errors.confirmPassword && (
-                    <small className="text-danger">{errors.confirmPassword}</small>
+                    <small className="text-danger">
+                        {errors.confirmPassword}
+                    </small>
                 )}
             </fieldset>
 
             <div className="d-flex align-items-center justify-content-between mt-3">
                 <div className="tf-cart-checkbox">
-                    <label htmlFor="login-form_agree"> Qeydiyyatdan keçmisiniz? </label>
+                    <label htmlFor="login-form_agree">
+                        {" "}
+                        Qeydiyyatdan keçmisiniz?{" "}
+                    </label>
                 </div>
                 <Link
                     href={`/auth/login`}
@@ -136,6 +233,8 @@ export default function PersonalForm() {
                     <span className="text text-button">Qeydiyyatdan Keç</span>
                 </button>
             </div>
+
+            <ToastContainer />
         </form>
     );
 }

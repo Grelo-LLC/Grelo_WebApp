@@ -7,7 +7,7 @@ export const fetchGreloInformation = async () => {
         const response = await REQUEST.get(ENDPOINTS.GENERAL_INFO());
         return response;
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
     }
 };
 
@@ -18,7 +18,7 @@ export const fetchProductsData = async () => {
         const response = await REQUEST.get(ENDPOINTS.STORE_PRODUCTS());
         return response.results;
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
         return [];
     }
 }

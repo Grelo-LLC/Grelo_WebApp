@@ -2,6 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import AuthImg from "./AuthImg";
+import { REQUEST } from "@/config/config";
+import { ENDPOINTS } from "@/config/endpoints";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ForgotPass() {
     const [isMobile, setIsMobile] = useState(false);
@@ -27,7 +31,7 @@ export default function ForgotPass() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         let newErrors = {};
@@ -38,7 +42,36 @@ export default function ForgotPass() {
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            console.log("Form göndərildi:", formData);
+            try {
+
+                const response = await REQUEST.post(
+                    ENDPOINTS.FORGOT_PASSWORD(),
+                    formData,
+                );
+
+                sessionStorage.setItem("reset_email", formData.email);
+
+                if (response.success) {
+                    toast.success(response.message, {
+                        position: "top-right",
+                        autoClose: 1000,
+                        theme: "colored",
+                        transition: Bounce,
+                    });
+                    setFormData({ email: "" });
+                }
+
+                setTimeout(() => {
+                    window.location.href = "/auth/otp";
+                }, 1500);
+            } catch (error) {
+                toast.error(error.response.data.error, {
+                    position: "top-right",
+                    autoClose: 1500,
+                    theme: "colored",
+                    transition: Bounce,
+                });
+            }
         }
     };
 
@@ -86,9 +119,6 @@ export default function ForgotPass() {
                                         style={{
                                             backgroundColor: errors.email ? "#ffdddb" : "",
                                             border: errors.email ? "1px solid red" : "",
-                                            "::placeholder": {
-                                                color: errors.email ? "red" : "#999",
-                                            },
                                         }}
                                         className={`text-black ${errors.email ? "placeholder-red" : ""}`}
                                     />
@@ -106,6 +136,9 @@ export default function ForgotPass() {
                     </div>
                 </div>
             </div>
+
+            {/* Toastify konteyneri */}
+            <ToastContainer />
         </section>
     );
 }

@@ -3,11 +3,16 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthImg from "./AuthImg";
+import { ENDPOINTS } from "@/config/endpoints";
+import { REQUEST } from "@/config/config";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
     const [passwordType, setPasswordType] = useState("password");
     const [isMobile, setIsMobile] = useState(false);
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const togglePassword = () => {
         setPasswordType((prevType) =>
@@ -19,29 +24,73 @@ export default function Login() {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 700);
         };
-
         handleResize();
         window.addEventListener("resize", handleResize);
-
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         let newErrors = {};
 
-        if (!formData.get("email")) {
-            newErrors.email = "Email vacibdir!";
-        }
-        if (!formData.get("password")) {
-            newErrors.password = "Şifrə vacibdir!";
-        }
+        const email = formData.get("email");
+        const password = formData.get("password");
+
+        if (!email) newErrors.email = "Email vacibdir!";
+        if (!password) newErrors.password = "Şifrə vacibdir!";
 
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            alert("Giriş uğurla edildi ✅");
+            setLoading(true);
+            try {
+                const response = await REQUEST.post(ENDPOINTS.LOGIN(), {
+                    email,
+                    password,
+                });
+
+                if (response?.access_token) {
+                    sessionStorage.setItem("access_token", response.access_token);
+
+                    toast.success("Giriş uğurla edildi ✅", {
+                        position: "top-right",
+                        autoClose: 1000,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true,
+                        theme: "colored",
+                        transition: Bounce,
+                    });
+
+                    setTimeout(() => {
+                        window.location.href = "/";
+                    }, 1500);
+                }
+            } catch (error) {
+                const errorMessage = error?.response?.data?.error;
+
+                if (errorMessage) {
+                    toast.error(errorMessage, {
+                        position: "top-right",
+                        autoClose: 2000,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        theme: "colored",
+                        transition: Bounce,
+                    });
+                } else {
+                    toast.error(errorMessage, {
+                        position: "top-right",
+                        autoClose: 2000,
+                        theme: "colored",
+                        transition: Bounce,
+                    });
+                }
+            } finally {
+                setLoading(false);
+            }
         }
     };
 
@@ -76,10 +125,11 @@ export default function Login() {
                         <div className="heading">
                             <h4>Giriş</h4>
                         </div>
-                        <form
-                            onSubmit={handleSubmit}
-                            className="form-login form-has-password"
-                        >
+                        <form onSubmit={handleSubmit} className="form-login form-has-password">
+                            {errors.form && (
+                                <div className="alert alert-danger">{errors.form}</div>
+                            )}
+
                             <div className="wrap">
                                 <fieldset>
                                     <input
@@ -128,7 +178,6 @@ export default function Login() {
                                         <div className="tf-checkbox-wrapp">
                                             <input
                                                 defaultChecked
-                                                className=""
                                                 type="checkbox"
                                                 id="login-form_agree"
                                                 name="agree_checkbox"
@@ -150,7 +199,7 @@ export default function Login() {
 
                             <div className="d-flex align-items-center justify-content-between mb-2">
                                 <div className="tf-cart-checkbox">
-                                    <label htmlFor="login-form_agree"> Hesabınız yoxdur? </label>
+                                    <label> Hesabınız yoxdur? </label>
                                 </div>
                                 <Link
                                     href={`/auth/register`}
@@ -161,14 +210,17 @@ export default function Login() {
                             </div>
 
                             <div className="button-submit">
-                                <button className="tf-btn btn-fill" type="submit">
-                                    <span className="text text-button">Giriş edin</span>
+                                <button className="tf-btn btn-fill" type="submit" disabled={loading}>
+                                    <span className="text text-button">
+                                        Giriş edin
+                                    </span>
                                 </button>
                             </div>
-
                         </form>
                     </div>
                 </div>
+
+                <ToastContainer />
             </div>
         </section>
     );

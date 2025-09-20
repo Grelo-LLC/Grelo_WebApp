@@ -2,6 +2,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import AuthImg from "./AuthImg";
+import { REQUEST } from "@/config/config";
+import { ENDPOINTS } from "@/config/endpoints";
+import { toast, ToastContainer, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Otp() {
     const inputsRef = useRef([]);
@@ -34,15 +38,64 @@ export default function Otp() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (otp.some((digit) => digit === "")) {
-            setErrors("Bütün xanaları doldurmaq vacibdir!");
+            toast.error("Zəhmət olmasa, bütün kod hissələrini doldurun!", {
+                position: "top-right",
+                autoClose: 1500,
+                theme: "colored",
+                transition: Bounce,
+            });
             return;
         }
 
-        console.log("OTP kodu:", otp.join(""));
+        const otpCode = otp.join("");
+        const email = sessionStorage.getItem("reset_email");
+
+        if (!email) {
+            toast.error("Email tapılmadı!", {
+                position: "top-right",
+                autoClose: 2000,
+                theme: "colored",
+                transition: Bounce,
+            });
+            return;
+        }
+
+        try {
+            const response = await REQUEST.post(ENDPOINTS.OTP(), {
+                email,
+                otp: otpCode,
+            });
+
+            if (response.success) {
+                sessionStorage.setItem("reset_email", email);
+                sessionStorage.setItem("reset_otp", otpCode);
+
+                toast.success("OTP təsdiqi uğurla həyata keçirildi ✅", {
+                    position: "top-right",
+                    autoClose: 1500,
+                    theme: "colored",
+                    transition: Bounce,
+                });
+
+                setTimeout(() => {
+                    window.location.href = "/auth/set-new-password";
+                }, 1500);
+            }
+        } catch (error) {
+            const errorData = error.response?.data || {};
+            const errorMessage = errorData.error || "OTP düzgün deyil və ya müddəti bitib ❌";
+
+            toast.error(errorMessage, {
+                position: "top-right",
+                autoClose: 2000,
+                theme: "colored",
+                transition: Bounce,
+            });
+        }
     };
 
     useEffect(() => {
@@ -131,6 +184,8 @@ export default function Otp() {
                     </div>
                 </div>
             </div>
+
+            <ToastContainer />
         </section>
     );
 }

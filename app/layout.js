@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import Context from "@/context/Context";
 import MobileMenu from "@/components/modals/MobileMenu";
 import { GreloProvider } from "@/context/GreloContext";
-import Topbar from "@/components/headers/Topbar";
+// import Topbar from "@/components/headers/Topbar";
 import Header from "@/components/headers/Header";
 import Footer from "@/components/footers/Footer";
 
@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
         <html lang="az">
             <body className="preload-wrapper popup-loader" cz-shortcut-listen="true">
                 <GreloProvider>
-                    {!hideLayout && <Topbar />}
+                    {/* {!hideLayout && <Topbar />} */}
                     <Context>
                         {!hideLayout && <Header />}
                         <div id="wrapper">{children}</div>

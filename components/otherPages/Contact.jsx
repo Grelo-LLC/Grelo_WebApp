@@ -92,6 +92,19 @@ export default function Contact() {
                                     required
                                 />
                             </fieldset>
+                            <fieldset className="">
+                                <input
+                                    className="form-control"
+                                    type="file"
+                                    name="email"
+                                    style={{ height: "47px", padding: "10px" }}
+                                    id="email"
+                                    tabIndex={2}
+                                    defaultValue=""
+                                    aria-required="true"
+                                    required
+                                />
+                            </fieldset>
                         </div>
                         <fieldset className="">
                             <textarea

@@ -6,6 +6,7 @@ export default function AuthImg() {
             src="/images/auth_img.jpg"
             alt="auth_img"
             fill
+            priority
             style={{ objectFit: "cover" }}
         />
     )
